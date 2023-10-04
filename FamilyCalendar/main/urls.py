@@ -5,5 +5,5 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('', views.mainPage, name='index')
+    path('<str:name>', views.mainPage, name='mainPage')
 ]
