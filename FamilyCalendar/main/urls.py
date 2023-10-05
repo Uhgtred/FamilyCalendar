@@ -5,5 +5,6 @@ from django.urls import path
 from . import views
 
 urlpatterns = [
-    path('<str:name>', views.mainPage, name='mainPage')
+    path('appointments/', views.calendarPage, name='calendarPage'),
+    path("", views.home, name='home')
 ]
