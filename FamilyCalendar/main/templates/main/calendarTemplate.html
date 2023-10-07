@@ -6,7 +6,9 @@
     <h1>{{list.name}}</h1>
     <ul>
     {% for appointment in list.appointment_set.all %}
-        <li>{{appointment.description}}</li>
+        {% if appointment.complete == False %}
+            <li>{{appointment.description}}</li>
+        {%  endif %}
     {% endfor %}
     </ul>
 {% endblock %}
