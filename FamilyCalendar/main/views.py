@@ -11,4 +11,4 @@ def home(response):
 
 def calendarPage(response):
     appointmentsList = Calendar.objects.get(id=1)
-    return render(response, 'main/calendarTemplate.html', {'list': appointmentsList})
+    return render(response, 'main/calendarTemplate.html', {'list': appointmentsList, 'filter': True})
