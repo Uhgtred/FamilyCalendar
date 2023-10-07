@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'main/baseTemplate.html' %}
+
+{% block content %}
+Create appointment
+<form method="post" action="/CreateCalendar/">
+    {% csrf_token %}
+    {{form.as_ul}}
+    <button type="submit" , name="save">
+        Create new Appointment
+    </button>
+</form>
+{% endblock %}
