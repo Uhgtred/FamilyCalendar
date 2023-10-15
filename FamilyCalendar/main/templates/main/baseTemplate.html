@@ -1,13 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
+    <style type="text/css">
+        .navigationSideBar {
+            height: 100%;
+            width: 160px;
+            position: fixed;
+            z-index: 1;
+            top: 0;
+            left: 0;
+            background-color: #000;
+            overflow-x: :hidden;
+            padding-top: 20px;
+        }
+
+        .navigationSideBar a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+            display: block;
+        }
+
+        .navigationSideBar a:hover {
+            color: #f1f1f1
+        }
+
+        .content {
+            margin-left: 160px;
+            padding: 0px 10px;
+        }
+    </style>
     <title>Family Calendar</title>
 </head>
+
 <body>
-    <div id="content", name ="content">
+    <div class="navigationSideBar">
+        <a href="">Home</a>
+        <a href="/CreateCalendar">Create Calendar</a>
+        <a href="/appointments">View Calendar</a>
+    </div>
+
+    <div id="content", name ="content", class="content">
         {% block content %}
         {% endblock %}
     </div>
 </body>
+
 </html>
