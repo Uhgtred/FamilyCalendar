@@ -4,11 +4,11 @@
 
 {% block content %}
 Create appointment
-<form method="post" action="/CreateCalendar/">
+<form method="post" action="/CreateAppointment/">
     {% csrf_token %}
     {{form.as_ul}}
     <button type="submit" , name="save">
-        Create new Calendar
+        Create new Appointment
     </button>
 </form>
 {% endblock %}

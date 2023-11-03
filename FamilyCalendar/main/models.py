@@ -1,16 +1,16 @@
+import datetime
+
 from django.db import models
 
 
-# Create your models here.
-
 class Calendar(models.Model):
     """
-    Class for modelling the calendar.
+    Class for modeling the calendar.
     """
-    name = models.CharField(max_length=50)
+    year = models.IntegerField()
 
     def __str__(self):
-        return self.name
+        return self.year
 
 
 class Appointment(models.Model):
@@ -18,10 +18,14 @@ class Appointment(models.Model):
     Class defining the model of an appointment in the Calendar.
     """
     calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
+    name = models.CharField(max_length=50)
     description = models.CharField(max_length=300)
-    # dueDate = models.DateTimeField()  # dunno if this is correct!
-    # involvedPersons = models.CharField(max_length=500)
-    complete = models.BooleanField()
+    dueDate = models.DateTimeField(datetime.date.today())
+    involvedPersons = models.CharField(max_length=500)
 
     def __str__(self):
-        return self.description
+        return self.name
+
+
+# class Task(models.Model, Appointment):
+#     complete = models.BooleanField()
