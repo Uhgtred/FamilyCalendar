@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Calendar, Appointment
-from .forms import CreateCalendar
+from .forms import CreateCalendar, CreateAppointment
 
 
 # Create your views here.
@@ -17,13 +17,16 @@ def calendarPage(response):
 
 def createAppointment(response):
     if response.method == 'POST':
-        form = CreateCalendar(response.POST)
+        form = CreateAppointment(response.POST)
         if form.is_valid():
             name = form.cleaned_data['name']
-            calendar = Calendar(name=name)
+            description = form.cleaned_data['description']
+            date = form.cleaned_data['date']
+            persons = form.cleaned_data['persons']
+            calendar = Appointment(name=name, description=description, date=date, involvedPersons=persons)
             calendar.save()
     else:
-        form = CreateCalendar()
+        form = CreateAppointment()
     return render(response, 'main/createAppointmentTemplate.html', {'form': form})
 
 
