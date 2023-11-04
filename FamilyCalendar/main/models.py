@@ -19,9 +19,9 @@ class Appointment(models.Model):
     """
     calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
-    description = models.CharField(max_length=300)
-    dueDate = models.DateTimeField(datetime.date.today())
-    involvedPersons = models.CharField(max_length=500)
+    description = models.CharField(max_length=250)
+    date = models.DateTimeField(datetime.date.today())
+    involvedPersons = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name
