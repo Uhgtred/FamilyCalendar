@@ -1,5 +1,6 @@
 import datetime
 
+from django.core.validators import validate_comma_separated_integer_list
 from django.db import models
 
 
@@ -10,7 +11,7 @@ class Calendar(models.Model):
     year = models.IntegerField()
 
     def __str__(self):
-        return self.year
+        return str(self.year)
 
 
 class Appointment(models.Model):
@@ -20,8 +21,8 @@ class Appointment(models.Model):
     calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
-    date = models.DateTimeField(datetime.date.today())
-    involvedPersons = models.CharField(max_length=100)
+    date = models.CharField(validators=[validate_comma_separated_integer_list], max_length=10)
+    persons = models.CharField(max_length=100)
 
     def __str__(self):
         return self.name

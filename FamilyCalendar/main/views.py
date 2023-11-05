@@ -1,3 +1,5 @@
+import datetime
+
 from django.shortcuts import render
 from django.http import HttpResponse, HttpResponseRedirect
 from .models import Calendar, Appointment
@@ -10,8 +12,8 @@ def home(response):
     return render(response, 'main/homeTemplate.html', {})
 
 
-def calendarPage(response):
-    appointmentList = Calendar.objects.get(id=1)
+def calendarPage(response, year: int):
+    appointmentList = Calendar.objects.get(year=year)
     return render(response, 'main/calendarTemplate.html', {'list': appointmentList, 'filter': True})
 
 
@@ -23,8 +25,9 @@ def createAppointment(response):
             description = form.cleaned_data['description']
             date = form.cleaned_data['date']
             persons = form.cleaned_data['persons']
-            calendar = Appointment(name=name, description=description, date=date, involvedPersons=persons)
-            calendar.save()
+            calendar = Calendar.objects.get(year=date.year)
+            calendar.appointment_set.create(name=name, description=description, date=[date.day, date.month], persons=persons)
+        return render(response, 'main/calendarTemplate.html', {'list': calendar, 'filter': True})
     else:
         form = CreateAppointment()
     return render(response, 'main/createAppointmentTemplate.html', {'form': form})
