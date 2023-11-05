@@ -3,12 +3,12 @@
 {% extends "main/baseTemplate.html" %}
 
 {% block content %}
-    <h1>{{list.name}}</h1>
+    <h1>{{list.year}}</h1>
     <ul>
     {% for appointment in list.appointment_set.all %}
-        {% if appointment.complete == filter %}
-            <li>{{appointment.description}}</li>
-        {%  endif %}
+<!--        {% if appointment.complete == filter %}-->
+        <li>{{appointment.name}}</li>
+<!--        {%  endif %}-->
     {% endfor %}
     </ul>
 {% endblock %}

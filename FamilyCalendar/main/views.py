@@ -9,12 +9,19 @@ from .forms import CreateCalendar, CreateAppointment
 # Create your views here.
 
 def home(response):
-    return render(response, 'main/homeTemplate.html', {})
+    return render(response, 'main/home.html', {})
 
+class Calendars:
 
-def calendarPage(response, year: int):
-    appointmentList = Calendar.objects.get(year=year)
-    return render(response, 'main/calendarTemplate.html', {'list': appointmentList, 'filter': True})
+    @staticmethod
+    def calendarPage(response, year: int):
+        calendar = Calendar.objects.get(year=year)
+        return render(response, 'main/calendar.html', {'list': calendar, 'filter': True})
+
+    @staticmethod
+    def allCalendars(response):
+        calendars = Calendar.objects.all()
+        return render(response, 'main/allCalendars.html', {'list': calendars})
 
 
 def createAppointment(response):
@@ -26,11 +33,12 @@ def createAppointment(response):
             date = form.cleaned_data['date']
             persons = form.cleaned_data['persons']
             calendar = Calendar.objects.get(year=date.year)
-            calendar.appointment_set.create(name=name, description=description, date=[date.day, date.month], persons=persons)
-        return render(response, 'main/calendarTemplate.html', {'list': calendar, 'filter': True})
+            calendar.appointment_set.create(name=name, description=description, date=[date.day, date.month],
+                                               persons=persons)
+        return render(response, 'main/calendar.html', {'list': calendar})
     else:
         form = CreateAppointment()
-    return render(response, 'main/createAppointmentTemplate.html', {'form': form})
+    return render(response, 'main/createAppointment.html', {'form': form})
 
 
 def createCalendar(response):
@@ -40,7 +48,7 @@ def createCalendar(response):
             year = form.cleaned_data['year']
             calendar = Calendar(year=year)
             calendar.save()
-        return HttpResponseRedirect("%i" %calendar.id)
+        return HttpResponseRedirect("%i" % calendar.id)
     else:
         form = CreateCalendar()
-    return render(response, 'main/createCalendarTemplate.html', {'form': form})
+    return render(response, 'main/createCalendar.html', {'form': form})

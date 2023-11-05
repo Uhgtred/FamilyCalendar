@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "main/baseTemplate.html" %}
+
+{% block content %}
+    <h1>Calendars</h1>
+    <ul>
+    {% for calendar in list %}
+        <li>{{calendar}}</li>
+    {% endfor %}
+    </ul>
+{% endblock %}
