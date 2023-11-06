@@ -11,13 +11,15 @@ class Calendar(models.Model):
     year = models.IntegerField()
 
     def __str__(self):
+        # Showing calendar-table in admin-panel with the valid year as name.
         return str(self.year)
 
 
 class Appointment(models.Model):
     """
-    Class defining the model of an appointment in the Calendar.
+    Class defining the model of an appointment inside the Calendar.
     """
+    # making appointments be a subitem of calendars
     calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
