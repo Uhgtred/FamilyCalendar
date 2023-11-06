@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "main/baseTemplate.html" %}
+
+{% block content %}
+    <h1>{{list.name}}</h1>
+    <ul>
+        {% for appointmentDetail in list %}
+            <li>{{appointmentDetail}}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
+</html>
