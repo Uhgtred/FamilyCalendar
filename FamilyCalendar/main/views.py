@@ -5,8 +5,6 @@ from .forms import CreateCalendar, CreateAppointment
 from .models import Calendar
 
 
-# Create your views here.
-
 def home(response):
     return render(response, 'main/home.html', {})
 
@@ -44,15 +42,14 @@ class Calendars:
         :param response: Response passed from the form.
         :return: Render of the calendar that has just been created.
         """
-        if response.method == 'POST':
-            form = CreateCalendar(response.POST)
-            if form.is_valid():
-                year = form.cleaned_data['year']
-                calendar = Calendar(year=year)
-                calendar.save()
-            return HttpResponseRedirect("%i" % calendar.id)
-        else:
+        form = CreateCalendar(response.POST)
+        if not response.method == 'POST':
             form = CreateCalendar()
+        if form.is_valid():
+            year = form.cleaned_data['year']
+            calendar = Calendar(year=year)
+            calendar.save()
+            return HttpResponseRedirect("%i" % calendar.id)
         return render(response, 'main/createCalendar.html', {'form': form})
 
 
@@ -63,17 +60,20 @@ class Appointments:
 
     @staticmethod
     def createAppointment(response):
-        if response.method == 'POST':
-            form = CreateAppointment(response.POST)
-            if form.is_valid():
-                name = form.cleaned_data['name']
-                description = form.cleaned_data['description']
-                date = form.cleaned_data['date']
-                persons = form.cleaned_data['persons']
-                calendar = Calendar.objects.get(year=date.year)
-                calendar.appointment_set.create(name=name, description=description, date=[date.day, date.month],
-                                                persons=persons)
-            return render(response, 'main/calendar.html', {'list': calendar})
-        else:
+        """
+        Method for creating a new appointment.
+        :param response: Response passed from the form.
+        :return: Render of the newly created appointment.
+        """
+        form = CreateAppointment(response.POST)
+        if not response.method == 'POST':
             form = CreateAppointment()
+        if form.is_valid():
+            name = form.cleaned_data['name']
+            description = form.cleaned_data['description']
+            date = form.cleaned_data['date']
+            persons = form.cleaned_data['persons']
+            calendar = Calendar.objects.get(year=date.year)
+            calendar.appointment_set.create(name=name, description=description, date=[date.day, date.month], persons=persons)
+            return render(response, 'main/calendar.html', {'list': calendar})
         return render(response, 'main/createAppointment.html', {'form': form})
