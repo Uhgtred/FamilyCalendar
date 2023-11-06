@@ -3,11 +3,11 @@
 {% extends "main/baseTemplate.html" %}
 
 {% block content %}
-    <h1>{{list.name}}</h1>
+    <h1>{{object.name}} {{object.calendar.year}}</h1>
     <ul>
-        {% for appointmentDetail in list %}
-            <li>{{appointmentDetail}}</li>
-        {% endfor %}
+        <li>Datum: {{object.date}}</li>
+        <li>Beschreibung: {{object.description}}</li>
+        <li>Teilnehmer: {{object.persons}}</li>
     </ul>
 {% endblock %}
 </html>

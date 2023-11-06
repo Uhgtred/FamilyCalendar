@@ -71,27 +71,27 @@ class Appointments:
             form = CreateAppointment()
         if form.is_valid():
             name = form.cleaned_data['name']
+            id = form.cleaned_data['id']
             description = form.cleaned_data['description']
             date = form.cleaned_data['date']
             persons = form.cleaned_data['persons']
             calendar = Calendar.objects.get(year=date.year)
-            calendar.appointment_set.create(name=name, description=description, date=[date.day, date.month], persons=persons)
+            calendar.appointment_set.create(name=name, description=description, id=id, date=[date.day, date.month], persons=persons)
             return render(response, 'main/calendar.html', {'list': calendar})
         return render(response, 'main/createAppointment.html', {'form': form})
 
     @staticmethod
-    def appointment(response, appointmentID: int):
+    def appointment(response, name: str):
         """
         Method for viewing the details of a specific appointment.
+        :param name:
         :param response: Response passed from the form.
-        :param appointmentID: Unique ID of the appointment that will be shown.
         :return: Render of the appointment that will be shown.
         """
         calendars = Calendar.objects.all()
         for calendar in calendars:
-            print(f'CALENDAR!!! {calendar.appointment_set(id=appointmentID)}')
             try:
-                calendar.appointment_set.get(id=appointmentID)
+                appointment = calendar.appointment_set.get(name=name)
             except:
                 pass
-        return render(response, 'main/appointment.html', {'list': calendar})
+        return render(response, 'main/appointment.html', {'object': appointment})
