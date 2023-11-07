@@ -21,16 +21,11 @@ class Appointment(models.Model):
     """
     # making appointments be a subitem of calendars
     calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
-    name = models.CharField(max_length=50, unique_for_year=True)
+    name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
-    # date = models.CharField(validators=[validate_comma_separated_integer_list], max_length=10)
     date = models.DateField()
-    date.input_formats = ['%d.%m.%Y']
     persons = models.CharField(max_length=100)
 
     def __str__(self):
+        # Showing appointments in admin-table with their name.
         return self.name
-
-
-# class Task(models.Model, Appointment):
-#     complete = models.BooleanField()

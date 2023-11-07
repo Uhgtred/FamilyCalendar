@@ -2,7 +2,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
 from .forms import CreateCalendar, CreateAppointment
-from .models import Calendar
+from .models import Calendar, Appointment
 
 
 def home(response):
@@ -71,12 +71,11 @@ class Appointments:
             form = CreateAppointment()
         if form.is_valid():
             name = form.cleaned_data['name']
-            id = form.cleaned_data['id']
             description = form.cleaned_data['description']
             date = form.cleaned_data['date']
             persons = form.cleaned_data['persons']
             calendar = Calendar.objects.get(year=date.year)
-            calendar.appointment_set.create(name=name, description=description, id=id, date=[date.day, date.month], persons=persons)
+            calendar.appointment_set.create(name=name, description=description, date=date, persons=persons)
             return render(response, 'main/calendar.html', {'list': calendar})
         return render(response, 'main/createAppointment.html', {'form': form})
 
@@ -88,10 +87,10 @@ class Appointments:
         :param response: Response passed from the form.
         :return: Render of the appointment that will be shown.
         """
-        calendars = Calendar.objects.all()
-        for calendar in calendars:
-            try:
-                appointment = calendar.appointment_set.get(name=name)
-            except:
-                pass
-        return render(response, 'main/appointment.html', {'object': appointment})
+        appointments = Appointment.objects.all()
+        relevantAppointments: list = []
+        for appointment in appointments:
+            if appointment.name == name:
+                relevantAppointments.append(appointment)
+
+        return render(response, 'main/appointment.html', {'list': relevantAppointments, 'name': name})
