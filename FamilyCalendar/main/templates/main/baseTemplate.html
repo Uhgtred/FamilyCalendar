@@ -29,6 +29,18 @@
             color: #f1f1f1;
         }
 
+        .navigationSideBar a:hover .subNavContent{
+            display: block;
+        }
+
+        .subNavContent {
+            display: none;
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+        }
+
         .content {
             margin-left: 160px;
             padding: 0 10px;
@@ -40,10 +52,15 @@
 <body>
     <div class="navigationSideBar">
         <a href="/">Home</a>
+        <div class="subNavContent">
+            <a href="allCalendars.html">Calendars</a>
+        </div>
         <a href="/CreateCalendar">Create Calendar</a>
         <a href="/CreateAppointment">Create Appointment</a>
         <a href="/calendars">View Calendars</a>
     </div>
+
+
 
     <div id="content", name ="content", class="content">
         {% block content %}
