@@ -2,7 +2,6 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
     <style>
         .navigationSideBar {
             height: 100%;
@@ -16,7 +15,7 @@
             padding-top: 20px;
         }
 
-        .navigationSideBar a {
+        .subNavigation a {
             padding: 6px 8px 6px 16px;
             text-decoration: none;
             font-size: 20px;
@@ -24,13 +23,9 @@
             display: block;
         }
 
-        .navigationSideBar a:hover {
-            padding: 10px 8px 6px 20px;
+        .subNavigation a:hover {
+            padding: 6px 8px 6px 20px;
             color: #f1f1f1;
-        }
-
-        .navigationSideBar a:hover .subNavContent{
-            display: block;
         }
 
         .subNavContent {
@@ -41,23 +36,59 @@
             color: #818181;
         }
 
+        .subNavContent a {
+            padding: 6px 8px 6px 16px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #818181;
+        }
+
+        .subNavContent a:hover {
+            padding: 6px 8px 6px 20px;
+            color: #f1f1f1;
+        }
+
+        .subNavigation:hover .subNavContent{
+            padding: 6px 8px 6px 20px;
+            color: #f1f1f1;
+            display: block;
+        }
+
         .content {
             margin-left: 160px;
             padding: 0 10px;
         }
     </style>
+    <meta charset="UTF-8">
     <title>Family Calendar</title>
 </head>
 
 <body>
     <div class="navigationSideBar">
-        <a href="/">Home</a>
-        <div class="subNavContent">
-            <a href="allCalendars.html">Calendars</a>
+        <div class="subNavigation">
+            <a href="/">Home</a>
+            <div class="subNavContent">
+                <a href="/calendars">Calendars</a>
+            </div>
         </div>
-        <a href="/CreateCalendar">Create Calendar</a>
-        <a href="/CreateAppointment">Create Appointment</a>
-        <a href="/calendars">View Calendars</a>
+        <div class="subNavigation">
+            <a href="/CreateCalendar">Create Calendar</a>
+            <div class="subNavContent">
+                <a href="/calendars">Calendars</a>
+            </div>
+        </div>
+        <div class="subNavigation">
+            <a href="/CreateAppointment">Create Appointment</a>
+            <div class="subNavContent">
+                <a href="/calendars">Calendars</a>
+            </div>
+        </div>
+        <div class="subNavigation">
+            <a href="/calendars">View Calendars</a>
+            <div class="subNavContent">
+                <a href="/calendars">Calendars</a>
+            </div>
+        </div>
     </div>
 
 
