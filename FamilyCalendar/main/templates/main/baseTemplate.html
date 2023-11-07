@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <style type="text/css">
+    <style>
         .navigationSideBar {
             height: 100%;
             width: 160px;
@@ -12,7 +12,7 @@
             top: 0;
             left: 0;
             background-color: #000;
-            overflow-x: :hidden;
+            overflow-x: hidden;
             padding-top: 20px;
         }
 
@@ -25,12 +25,13 @@
         }
 
         .navigationSideBar a:hover {
-            color: #f1f1f1
+            padding: 10px 8px 6px 20px;
+            color: #f1f1f1;
         }
 
         .content {
             margin-left: 160px;
-            padding: 0px 10px;
+            padding: 0 10px;
         }
     </style>
     <title>Family Calendar</title>
@@ -38,7 +39,7 @@
 
 <body>
     <div class="navigationSideBar">
-        <a href="">Home</a>
+        <a href="/">Home</a>
         <a href="/CreateCalendar">Create Calendar</a>
         <a href="/CreateAppointment">Create Appointment</a>
         <a href="/calendars">View Calendars</a>

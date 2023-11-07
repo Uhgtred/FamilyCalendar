@@ -92,5 +92,4 @@ class Appointments:
         for appointment in appointments:
             if appointment.name == name:
                 relevantAppointments.append(appointment)
-
         return render(response, 'main/appointment.html', {'list': relevantAppointments, 'name': name})
