@@ -3,63 +3,8 @@
 
 <head>
     {% load static %}
-    <style>
-        .navigationSideBar {
-            height: 100%;
-            width: 160px;
-            position: fixed;
-            z-index: 1;
-            top: 0;
-            left: 0;
-            background-color: #000;
-            overflow-x: hidden;
-            padding-top: 20px;
-        }
-
-        .subNavigation a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 20px;
-            color: #818181;
-            display: block;
-        }
-
-        .subNavigation a:hover {
-            padding: 6px 8px 6px 20px;
-            color: #f1f1f1;
-        }
-
-        .subNavContent {
-            display: none;
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 15px;
-            color: #818181;
-        }
-
-        .subNavContent a {
-            padding: 6px 8px 6px 16px;
-            text-decoration: none;
-            font-size: 15px;
-            color: #818181;
-        }
-
-        .subNavContent a:hover {
-            padding: 6px 8px 6px 20px;
-            color: #f1f1f1;
-        }
-
-        .subNavigation:hover .subNavContent{
-            padding: 6px 8px 6px 20px;
-            color: #f1f1f1;
-            display: block;
-        }
-
-        .content {
-            margin-left: 160px;
-            padding: 0 10px;
-        }
-    </style>
+    <link rel='stylesheet' href={% static 'style.css' %}>
+    <script src={% static 'mybase.js' %} async></script>
     <meta charset="UTF-8">
     <title>Family Calendar</title>
 </head>
@@ -97,9 +42,6 @@
         {% block content %}
         {% endblock %}
     </div>
-
-    <h1>TESTSCRIPT JS</h1>
-    <script src={% static 'mybase.js' %}></script>
 </body>
 
 </html>
