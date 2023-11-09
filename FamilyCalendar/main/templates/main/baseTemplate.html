@@ -2,6 +2,7 @@
 <html lang="en">
 
 <head>
+    {% load static %}
     <style>
         .navigationSideBar {
             height: 100%;
@@ -63,6 +64,7 @@
     <title>Family Calendar</title>
 </head>
 
+
 <body>
     <div class="navigationSideBar">
         <div class="subNavigation">
@@ -97,7 +99,7 @@
     </div>
 
     <h1>TESTSCRIPT JS</h1>
-    <script src="./mybase.js"></script>
+    <script src={% static 'mybase.js' %}></script>
 </body>
 
 </html>
