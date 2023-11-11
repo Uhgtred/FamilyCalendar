@@ -6,10 +6,13 @@
     <h1>{{list.year}}</h1>
     <ul>
     {% for appointment in list.appointment_set.all %}
+        <div id="daySquare", name="daySquare", class="daySquare"></div>
 <!--        {% if appointment.complete == filter %}-->
         <li>{{appointment.name}}</li>
 <!--        {%  endif %}-->
     {% endfor %}
     </ul>
+    {% load static %}
+    {% src="calendar.css" %}
 {% endblock %}
 </html>

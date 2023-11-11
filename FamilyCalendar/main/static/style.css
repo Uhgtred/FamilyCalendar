@@ -1,4 +1,8 @@
- .navigationSideBar {
+body {
+    background-color: #313131
+}
+
+.navigationSideBar {
             height: 100%;
             width: 160px;
             position: fixed;
@@ -49,7 +53,7 @@
             display: block;
         }
 
-        .content {
+        #content {
             margin-left: 160px;
             padding: 0 10px;
         }
