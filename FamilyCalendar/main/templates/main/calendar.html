@@ -2,6 +2,11 @@
 <html lang="en">
 {% extends "main/baseTemplate.html" %}
 <!--This view is for displaying a month of a calendar with 7 days in a row -->
+<head>
+    {% load static %}
+    <title>Family Calendar</title>
+    <script src={% static 'calendar.js' %} async></script>
+</head>
 {% block content %}
     <h1>{{list.year}}</h1>
     <ul id="Squares" class="Squares">
