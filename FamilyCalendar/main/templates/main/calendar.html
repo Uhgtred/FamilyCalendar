@@ -1,14 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 {% extends "main/baseTemplate.html" %}
-
+<!--This view is for displaying a month of a calendar with 7 days in a row -->
 {% block content %}
     <h1>{{list.year}}</h1>
-    {% for appointment in list.appointment_set.all %}
-        <div id="daySquare", name="daySquare", class="daySquare">
-            <li>{{appointment.name}}</li>
-        </div>
-    {% endfor %}
+    <ul id="Squares" class="Squares">
+        {% for appointment in list.appointment_set.all %}
+            <li id="daySquares">
+                {{appointment.name}}
+            </li>
+        {% endfor %}
+    </ul>
+
     {% load static %}
     <link rel='stylesheet' href={% static 'calendar.css' %}>
 {% endblock %}

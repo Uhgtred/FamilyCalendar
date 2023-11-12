@@ -1,7 +1,23 @@
-#daySquare{
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    background: #818181;
-    gap: 10px;
-    grid-auto-rows: 100px;
+/*This view is for displaying a month of a calendar with 7 days in a row*/
+
+#Squares {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-wrap: wrap;
+  display: flex;
+}
+
+#daySquares{
+  background: #818181;
+  padding: 5px;
+  width: 100px;
+  height: 100px;
+  margin: 10px;
+
+  line-height: 100px;
+  color: white;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
 }
