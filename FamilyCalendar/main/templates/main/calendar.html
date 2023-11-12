@@ -4,15 +4,12 @@
 
 {% block content %}
     <h1>{{list.year}}</h1>
-    <ul>
     {% for appointment in list.appointment_set.all %}
-        <div id="daySquare", name="daySquare", class="daySquare"></div>
-<!--        {% if appointment.complete == filter %}-->
-        <li>{{appointment.name}}</li>
-<!--        {%  endif %}-->
+        <div id="daySquare", name="daySquare", class="daySquare">
+            <li>{{appointment.name}}</li>
+        </div>
     {% endfor %}
-    </ul>
     {% load static %}
-    {% src="calendar.css" %}
+    <link rel='stylesheet' href={% static 'calendar.css' %}>
 {% endblock %}
 </html>

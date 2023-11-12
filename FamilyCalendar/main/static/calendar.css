@@ -1,6 +1,7 @@
 #daySquare{
-            width: 100px;
-            height: 100px;
-            background: #818181;
-            display: flow;
-        }
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    background: #818181;
+    gap: 10px;
+    grid-auto-rows: 100px;
+}
