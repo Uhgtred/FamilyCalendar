@@ -9,13 +9,13 @@
 </head>
 {% block content %}
     <h1>{{list.year}}</h1>
-    <ul id="Squares" class="Squares">
+    <div id="Squares" class="Squares">
         {% for appointment in list.appointment_set.all %}
-            <li id="daySquares">
+            <div id="daySquares" class="daySquares">
                 {{appointment.name}}
-            </li>
+            </div>
         {% endfor %}
-    </ul>
+    </div>
 
     {% load static %}
     <link rel='stylesheet' href={% static 'calendar.css' %}>

@@ -9,6 +9,7 @@ urlpatterns = [
     path('appointment/<str:name>/', views.Appointments.appointment, name='appointment'),
     path('calendars/', views.Calendars.allCalendars, name='calendarList'),
     path('calendar/<int:year>/', views.Calendars.calendarPage, name='calendar'),
+    path('calendar/', views.Calendars.calendarPage, name='calendar'),
     path("CreateCalendar/", views.Calendars.createCalendar, name='createCalendar'),
     path('CreateAppointment/', views.Appointments.createAppointment, name='createAppointment')
 ]
