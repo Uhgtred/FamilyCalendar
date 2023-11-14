@@ -8,7 +8,7 @@
   display: flex;
 }
 
-#daySquares{
+.daySquares{
   background: #818181;
   padding: 5px;
   width: 100px;
