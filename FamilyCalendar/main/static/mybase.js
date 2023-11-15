@@ -7,7 +7,7 @@ const currentYear = new Date().getFullYear();
 
 function printCalendarEvent(){
     const pageUrl = basePath + '/calendar/' + currentYear ;
-    window.close();
+    window.close(); // TODO: change this at some point. This feels wrong.
     window.open(pageUrl);
 }
 

@@ -6,14 +6,31 @@
   list-style: none;
   flex-wrap: wrap;
   display: flex;
+  width: 1500px;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  width: 1500px;
+  padding-right: 20px;
+}
+
+li {
+  display: inline-block;
+  width: 196px;   /* I do not understand why it has to be 196 instead of 200 */
+  margin: 5px;
+  color: black;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
 }
 
 .daySquares{
-  background: #818181;
-  padding: 5px;
-  width: 100px;
+  background: #616161;
+  width: 200px;
   height: 100px;
-  margin: 10px;
+  margin: 5px;
   line-height: 100px;
   color: black;
   font-weight: bold;

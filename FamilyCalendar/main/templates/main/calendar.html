@@ -8,12 +8,25 @@
     <link rel='stylesheet' href={% static 'calendar.css' %}>
     <script src={% static 'calendar.js' %} async></script>
     <h1>{{list.year}}</h1>
+    <div id="weekDays", class="weekDays">
+        <ul>
+            <li>Montag</li>
+            <li>Dienstag</li>
+            <li>Mittwoch</li>
+            <li>Donnerstag</li>
+            <li>Freitag</li>
+            <li>Samstag</li>
+            <li>Sonntag</li>
+        </ul>
+    </div>
     <div id="Squares" class="Squares">
-        {% for appointment in list.appointment_set.all %}
-            <div id="daySquares" class="daySquares">
-                {{appointment.name}}
-            </div>
-        {% endfor %}
+        {% with '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22' as list %}
+            {% for counter in list.split %}
+                <div id="daySquares" class="daySquares">
+                    {{counter}}
+                </div>
+            {% endfor %}
+        {% endwith %}
     </div>
 {% endblock %}
 </html>
