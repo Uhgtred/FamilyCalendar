@@ -1,5 +1,6 @@
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
+import calendar
 
 from .forms import CreateCalendar, CreateAppointment
 from .models import Calendar, Appointment
@@ -15,7 +16,7 @@ class Calendars:
     """
 
     @staticmethod
-    def calendarPage(response, year: int):
+    def calendarPage(response, year: int, month: int):
         """
         Method for viewing a calendar-page of a specified year.
         And all assigned Appointments.
@@ -23,8 +24,9 @@ class Calendars:
         :param year: Year in which the shown calendar is valid.
         :return: Render of the requested calendar.
         """
-        calendar = Calendar.objects.get(year=year)
-        return render(response, 'main/calendar.html', {'list': calendar})
+        calendar_ = Calendar.objects.get(year=year)
+        # TODO: need something here, that takes information about the month such as first day of a month, amount of days and the appointments of this month
+        return render(response, 'main/calendar.html', {'list': calendar_})
 
     @staticmethod
     def allCalendars(response):
@@ -48,9 +50,11 @@ class Calendars:
             form = CreateCalendar()
         if form.is_valid():
             year = form.cleaned_data['year']
-            calendar = Calendar(year=year)
-            calendar.save()
-            return HttpResponseRedirect("%i" % calendar.id)
+            calendar_ = Calendar(year=year)
+            for month in range(1, 13):
+                calendar_.month_set.create(number = month, name = calendar.month(year, month), firstDay = calendar.monthrange(year, month))
+            calendar_.save()
+            return HttpResponseRedirect("%i" % calendar_.id)
         return render(response, 'main/createCalendar.html', {'form': form})
 
 

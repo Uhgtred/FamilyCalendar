@@ -1,6 +1,3 @@
-import datetime
-
-from django.core.validators import validate_comma_separated_integer_list
 from django.db import models
 
 
@@ -15,12 +12,20 @@ class Calendar(models.Model):
         return str(self.year)
 
 
+class Month(models.Model):
+    # making months a subitem of calendars
+    calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
+    number = models.IntegerField()
+    name = models.CharField(max_length=10)
+    firstDay = models.CharField(max_length=10)
+
+
 class Appointment(models.Model):
     """
     Class defining the model of an appointment inside the Calendar.
     """
-    # making appointments be a subitem of calendars
-    calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
+    # making appointments be a subitem of month
+    month = models.ForeignKey(Month, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
     date = models.DateField()
