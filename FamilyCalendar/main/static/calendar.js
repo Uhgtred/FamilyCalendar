@@ -7,5 +7,5 @@ function printSomething(day){
 
 for (let counter = 0; counter < days.length; counter++){
     const daySquare = days[counter]
-    daySquare.addEventListener('click', function (){printSomething(counter + 1)})
+    daySquare.addEventListener('click', function (){printSomething(counter)})
 }

@@ -7,7 +7,7 @@
     {% load static %}
     <link rel='stylesheet' href={% static 'calendar.css' %}>
     <script src={% static 'calendar.js' %} async></script>
-    <h1>{{list.month}}</h1>
+    <h1>{{month}} {{year}}</h1>
     <div id="weekDays", class="weekDays">
         <ul>
             <li>Montag</li>
@@ -20,13 +20,11 @@
         </ul>
     </div>
     <div id="Squares" class="Squares">
-        {% with '1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22' as list %}
-            {% for counter in list.split %}
-                <div id="daySquares" class="daySquares">
-                    {{counter}}
-                </div>
-            {% endfor %}
-        {% endwith %}
+        {% for counter in numberOfDays %}
+            <div id="daySquares" class="daySquares">
+                {{counter}}
+            </div>
+        {% endfor %}
     </div>
 {% endblock %}
 </html>

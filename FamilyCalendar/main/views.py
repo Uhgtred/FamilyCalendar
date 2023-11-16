@@ -20,13 +20,22 @@ class Calendars:
         """
         Method for viewing a calendar-page of a specified year.
         And all assigned Appointments.
+        :param month: Integer-value for the month of which the calendar-Page will be shown.
         :param response: Response passed from the form.
         :param year: Year in which the shown calendar is valid.
         :return: Render of the requested calendar.
         """
-        calendar_ = Calendar.objects.get(year=year)
+        firstDay, numberOfDays = calendar.monthrange(year, month)
+        numberOfDaysInPreviousMonth = calendar.monthrange(year, month - 1)[1]
+        print(firstDay, numberOfDays)
+        daysBeforeList = [i for i in reversed(range(numberOfDaysInPreviousMonth, (numberOfDaysInPreviousMonth - firstDay), -1))]
+        print(daysBeforeList)
+        dayList = daysBeforeList + [i for i in range(1, numberOfDays + 1)]
+        print(dayList)
+        year = Calendar.objects.get(year=year)
+        month = Calendars.getMonthNameByNumber(month)
         # TODO: need something here, that takes information about the month such as first day of a month, amount of days and the appointments of this month
-        return render(response, 'main/calendar.html', {'list': calendar_})
+        return render(response, 'main/calendar.html', {'year': year, 'month': month, 'numberOfDays': dayList})
 
     @staticmethod
     def allCalendars(response):
@@ -52,10 +61,43 @@ class Calendars:
             year = form.cleaned_data['year']
             calendar_ = Calendar(year=year)
             for month in range(1, 13):
-                calendar_.month_set.create(number = month, name = calendar.month(year, month), firstDay = calendar.monthrange(year, month))
+                calendar_.month_set.create(number=month, name=calendar.month(year, month), firstDay=calendar.monthrange(year, month))
             calendar_.save()
             return HttpResponseRedirect("%i" % calendar_.id)
         return render(response, 'main/createCalendar.html', {'form': form})
+
+    @staticmethod
+    def getMonthNameByNumber(month: int) -> str:
+        """
+        Returning a name (str) of the month that fits to the integer that has been passed.
+        :param month: integer representing a month.
+        :return: string representing a month.
+        """
+        match month:
+            case 1:
+                return 'Januar'
+            case 2:
+                return 'Februar'
+            case 3:
+                return 'Maerz'
+            case 4:
+                return 'April'
+            case 5:
+                return 'Mai'
+            case 6:
+                return 'Juni'
+            case 7:
+                return 'Juli'
+            case 8:
+                return 'August'
+            case 9:
+                return 'September'
+            case 10:
+                return 'Oktober'
+            case 11:
+                return 'November'
+            case 12:
+                return 'Dezember'
 
 
 class Appointments:

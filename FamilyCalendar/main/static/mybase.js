@@ -1,12 +1,12 @@
 const subNavigationElements = document.getElementsByClassName('subNavigation');
 
-console.log(subNavigationElements)
-
 const basePath = window.location.origin;
 const currentYear = new Date().getFullYear();
+const currentMonth = new Date().getMonth()
+
 
 function printCalendarEvent(){
-    const pageUrl = basePath + '/calendar/' + currentYear ;
+    const pageUrl = basePath + '/calendar/' + currentYear + '/' + currentMonth;
     window.close(); // TODO: change this at some point. This feels wrong.
     window.open(pageUrl);
 }
