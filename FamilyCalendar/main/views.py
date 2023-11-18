@@ -35,8 +35,8 @@ class Calendars:
         dayList = daysBeforeList + [i for i in range(1, numberOfDays + 1)]
         print(dayList)
         year = Calendar.objects.get(year=year)
-        month = Calendars.getMonthNameByNumber(month)
-        return render(response, 'main/calendar.html', {'year': year, 'month': month, 'numberOfDays': dayList})
+        monthName = Calendars.getMonthNameByNumber(month)
+        return render(response, 'main/calendar.html', {'year': year, 'month': monthName, 'numberOfDays': dayList})
 
     @staticmethod
     def allCalendars(response):
@@ -64,6 +64,10 @@ class Calendars:
             # calendar_.save()
             for month in range(1, 13):
                 """TODO: this needs to be it's own method!"""
+                """Need to use forms to get this running correctly!!!"""
+                """https://forum.djangoproject.com/t/valueerror-needs-to-have-a-value-for-field-id-before-this-many-to-many-relationship-can-be-used/1808
+                This forum-thread can possibly help on solving this issue
+                needs to have a value for field "id" before this relationship can be used. --> Error-message that has been thrown"""
                 calendarMonth = calendar_.month_set.create(month=month, name=calendar.month(year, month), firstDay=calendar.monthrange(year, month))
                 # calendar_.save()
                 numberOfDays = calendar.monthrange(year, month)[1]

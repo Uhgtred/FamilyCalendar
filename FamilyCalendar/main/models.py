@@ -17,7 +17,6 @@ class Month(models.Model):
     calendar = models.ForeignKey(Calendar, on_delete=models.CASCADE)
     month = models.IntegerField()
     name = models.CharField(max_length=10)
-    firstDay = models.CharField(max_length=10)
 
     def __str__(self):
         return self.name
