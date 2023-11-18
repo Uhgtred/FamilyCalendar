@@ -3,7 +3,7 @@ from django.shortcuts import render
 import calendar
 
 from .forms import CreateCalendar, CreateAppointment
-from .models import Calendar, Appointment
+from .models import Calendar, Appointment, Month
 
 
 def home(response):
@@ -28,13 +28,14 @@ class Calendars:
         firstDay, numberOfDays = calendar.monthrange(year, month)
         numberOfDaysInPreviousMonth = calendar.monthrange(year, month - 1)[1]
         print(firstDay, numberOfDays)
+        # Making the days of the last month visible back until monday.
+        # This could potentially go to an own class later on, for modularity.
         daysBeforeList = [i for i in reversed(range(numberOfDaysInPreviousMonth, (numberOfDaysInPreviousMonth - firstDay), -1))]
         print(daysBeforeList)
         dayList = daysBeforeList + [i for i in range(1, numberOfDays + 1)]
         print(dayList)
         year = Calendar.objects.get(year=year)
         month = Calendars.getMonthNameByNumber(month)
-        # TODO: need something here, that takes information about the month such as first day of a month, amount of days and the appointments of this month
         return render(response, 'main/calendar.html', {'year': year, 'month': month, 'numberOfDays': dayList})
 
     @staticmethod
@@ -60,8 +61,13 @@ class Calendars:
         if form.is_valid():
             year = form.cleaned_data['year']
             calendar_ = Calendar(year=year)
+            # calendar_.save()
             for month in range(1, 13):
-                calendar_.month_set.create(number=month, name=calendar.month(year, month), firstDay=calendar.monthrange(year, month))
+                """TODO: this needs to be it's own method!"""
+                calendarMonth = calendar_.month_set.create(month=month, name=calendar.month(year, month), firstDay=calendar.monthrange(year, month))
+                # calendar_.save()
+                numberOfDays = calendar.monthrange(year, month)[1]
+                [calendarMonth.day_set.create(day=i) for i in range(numberOfDays)]
             calendar_.save()
             return HttpResponseRedirect("%i" % calendar_.id)
         return render(response, 'main/createCalendar.html', {'form': form})
@@ -120,8 +126,8 @@ class Appointments:
             description = form.cleaned_data['description']
             date = form.cleaned_data['date']
             persons = form.cleaned_data['persons']
-            calendar = Calendar.objects.get(year=date.year)
-            calendar.appointment_set.create(name=name, description=description, date=date, persons=persons)
+            month = Month.objects.get(month=date.month)
+            month.appointment_set.create(name=name, description=description, date=date, persons=persons)
             return render(response, 'main/calendar.html', {'list': calendar})
         return render(response, 'main/createAppointment.html', {'form': form})
 

@@ -2,7 +2,7 @@ const subNavigationElements = document.getElementsByClassName('subNavigation');
 
 const basePath = window.location.origin;
 const currentYear = new Date().getFullYear();
-const currentMonth = new Date().getMonth()
+const currentMonth = new Date().getMonth() + 1
 
 
 function printCalendarEvent(){
