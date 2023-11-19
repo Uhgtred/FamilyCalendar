@@ -3,7 +3,7 @@ from django.shortcuts import render
 import calendar
 
 from .forms import CreateCalendar, CreateAppointment
-from .models import Calendar, Appointment, Month
+from .models import Calendar, Appointment, Month, Day
 
 
 def home(response):
@@ -25,17 +25,19 @@ class Calendars:
         :param year: Year in which the shown calendar is valid.
         :return: Render of the requested calendar.
         """
-        firstDay, numberOfDays = calendar.monthrange(year, month)
+        firstDay = calendar.monthrange(year, month)[0]
+        days = Day.objects.get(year=year, month=month)
         numberOfDaysInPreviousMonth = calendar.monthrange(year, month - 1)[1]
-        print(firstDay, numberOfDays)
+        print(firstDay, days)
         # Making the days of the last month visible back until monday.
         # This could potentially go to an own class later on, for modularity.
         daysBeforeList = [i for i in reversed(range(numberOfDaysInPreviousMonth, (numberOfDaysInPreviousMonth - firstDay), -1))]
         print(daysBeforeList)
-        dayList = daysBeforeList + [i for i in range(1, numberOfDays + 1)]
+        dayList = daysBeforeList + days
         print(dayList)
         year = Calendar.objects.get(year=year)
-        monthName = Calendars.getMonthNameByNumber(month)
+        month = Month.objects.get(year=year, month=month)
+        monthName = month.name
         return render(response, 'main/calendar.html', {'year': year, 'month': monthName, 'numberOfDays': dayList})
 
     @staticmethod
@@ -48,8 +50,8 @@ class Calendars:
         calendars = Calendar.objects.all()
         return render(response, 'main/allCalendars.html', {'list': calendars})
 
-    @staticmethod
-    def createCalendar(response):
+    @classmethod
+    def createCalendar(cls, response):
         """
         Method for creating a new calendar.
         :param response: Response passed from the form.
@@ -61,53 +63,26 @@ class Calendars:
         if form.is_valid():
             year = form.cleaned_data['year']
             calendar_ = Calendar(year=year)
-            # calendar_.save()
-            for month in range(1, 13):
-                """TODO: this needs to be it's own method!"""
-                """Need to use forms to get this running correctly!!!"""
-                """https://forum.djangoproject.com/t/valueerror-needs-to-have-a-value-for-field-id-before-this-many-to-many-relationship-can-be-used/1808
-                This forum-thread can possibly help on solving this issue
-                needs to have a value for field "id" before this relationship can be used. --> Error-message that has been thrown"""
-                calendarMonth = calendar_.month_set.create(month=month, name=calendar.month(year, month), firstDay=calendar.monthrange(year, month))
-                # calendar_.save()
-                numberOfDays = calendar.monthrange(year, month)[1]
-                [calendarMonth.day_set.create(day=i) for i in range(numberOfDays)]
             calendar_.save()
+            cls.createMonths(calendar_)
+            calendar_.save()
+            cls.createDays(calendar_)
             return HttpResponseRedirect("%i" % calendar_.id)
         return render(response, 'main/createCalendar.html', {'form': form})
 
-    @staticmethod
-    def getMonthNameByNumber(month: int) -> str:
-        """
-        Returning a name (str) of the month that fits to the integer that has been passed.
-        :param month: integer representing a month.
-        :return: string representing a month.
-        """
-        match month:
-            case 1:
-                return 'Januar'
-            case 2:
-                return 'Februar'
-            case 3:
-                return 'Maerz'
-            case 4:
-                return 'April'
-            case 5:
-                return 'Mai'
-            case 6:
-                return 'Juni'
-            case 7:
-                return 'Juli'
-            case 8:
-                return 'August'
-            case 9:
-                return 'September'
-            case 10:
-                return 'Oktober'
-            case 11:
-                return 'November'
-            case 12:
-                return 'Dezember'
+    @classmethod
+    def createMonths(cls, calendar_) -> None:
+        for month in range(1, 13):
+            calendar_.month_set.create(month=month, name=calendar.month_name[month])
+        # calendar_.save()
+
+    @classmethod
+    def createDays(cls, calendar_):
+        months = calendar_.month_set.all()
+        for month in months:
+            for day in range(1, calendar.monthrange(year=calendar_.year, month=month.month)[1]):
+                Day.objects.create(day=day, month=month)
+            calendar_.save()
 
 
 class Appointments:
