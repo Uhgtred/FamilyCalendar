@@ -20,7 +20,12 @@
         </ul>
     </div>
     <div id="Squares" class="Squares">
-        {% for counter in numberOfDays %}
+        {% for counter in listOfLastMonth %}
+            <div id="oldDaySquares" class="oldDaySquares">
+                {{counter}}
+            </div>
+        {% endfor %}
+        {% for counter in listOfDays %}
             <div id="daySquares" class="daySquares">
                 {{counter}}
             </div>

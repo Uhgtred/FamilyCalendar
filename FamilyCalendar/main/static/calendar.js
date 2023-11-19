@@ -2,7 +2,7 @@ const days = document.getElementsByClassName('daySquares')
 console.log(days)
 
 function printSomething(day){
-    console.log('Clicked day ' + day + ' of a Month!')
+    console.log('Clicked day ' + (day + 1) + ' of a Month!')
 }
 
 for (let counter = 0; counter < days.length; counter++){

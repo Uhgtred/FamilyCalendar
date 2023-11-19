@@ -30,7 +30,7 @@ class Day(models.Model):
     day = models.IntegerField()
 
     def __str__(self):
-        return self.day
+        return str(self.day)
 
 
 class Appointment(models.Model):

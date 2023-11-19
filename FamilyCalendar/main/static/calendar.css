@@ -37,3 +37,15 @@ li {
   font-size: 2em;
   text-align: center;
 }
+
+.oldDaySquares{
+  background: #353535;
+  width: 200px;
+  height: 100px;
+  margin: 5px;
+  line-height: 100px;
+  color: #212121;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}

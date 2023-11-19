@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 import calendar
@@ -26,19 +28,18 @@ class Calendars:
         :return: Render of the requested calendar.
         """
         firstDay = calendar.monthrange(year, month)[0]
-        days = Day.objects.get(year=year, month=month)
+        yearInstance = Calendar.objects.get(year=year)
+        monthInstance = yearInstance.month_set.get(month=month)
+        days = monthInstance.day_set.all()
+        integerDayList = []
+        for day in days:
+            integerDayList.append(day.day + 1)
+        # days = Day.objects.get(year=year, month=monthInstance)
         numberOfDaysInPreviousMonth = calendar.monthrange(year, month - 1)[1]
-        print(firstDay, days)
         # Making the days of the last month visible back until monday.
-        # This could potentially go to an own class later on, for modularity.
         daysBeforeList = [i for i in reversed(range(numberOfDaysInPreviousMonth, (numberOfDaysInPreviousMonth - firstDay), -1))]
-        print(daysBeforeList)
-        dayList = daysBeforeList + days
-        print(dayList)
-        year = Calendar.objects.get(year=year)
-        month = Month.objects.get(year=year, month=month)
-        monthName = month.name
-        return render(response, 'main/calendar.html', {'year': year, 'month': monthName, 'numberOfDays': dayList})
+        monthName = monthInstance.name
+        return render(response, 'main/calendar.html', {'year': year, 'month': monthName, 'listOfDays': integerDayList, 'listOfLastMonth': daysBeforeList})
 
     @staticmethod
     def allCalendars(response):
@@ -62,25 +63,33 @@ class Calendars:
             form = CreateCalendar()
         if form.is_valid():
             year = form.cleaned_data['year']
+            # Returning if calendar already exists
+            # TODO: Make a Popup that informs user about existing calender
+            try:
+                Calendar.objects.get(year=year)
+                return render(response, 'main/createCalendar.html', {'form': form})
+            except Calendar.DoesNotExist:
+                # TODO: make a loading-screen or since it takes quiet a while to create a new calendar
+                print('Creating new Calendar')
             calendar_ = Calendar(year=year)
             calendar_.save()
             cls.createMonths(calendar_)
-            calendar_.save()
             cls.createDays(calendar_)
-            return HttpResponseRedirect("%i" % calendar_.id)
+            return render(response, f'main/calendar/{year}/{datetime.now().month}')
+            return HttpResponseRedirect("%i" % calendar_.year)
         return render(response, 'main/createCalendar.html', {'form': form})
 
     @classmethod
     def createMonths(cls, calendar_) -> None:
         for month in range(1, 13):
             calendar_.month_set.create(month=month, name=calendar.month_name[month])
-        # calendar_.save()
+        calendar_.save()
 
     @classmethod
     def createDays(cls, calendar_):
         months = calendar_.month_set.all()
         for month in months:
-            for day in range(1, calendar.monthrange(year=calendar_.year, month=month.month)[1]):
+            for day in range(calendar.monthrange(year=calendar_.year, month=month.month)[1]):
                 Day.objects.create(day=day, month=month)
             calendar_.save()
 
