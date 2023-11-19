@@ -9,14 +9,14 @@
     <script src={% static 'calendar.js' %} async></script>
     <h1>{{month}} {{year}}</h1>
     <div id="weekDays", class="weekDays">
-        <ul>
-            <li>Montag</li>
-            <li>Dienstag</li>
-            <li>Mittwoch</li>
-            <li>Donnerstag</li>
-            <li>Freitag</li>
-            <li>Samstag</li>
-            <li>Sonntag</li>
+        <ul class="weekDayList">
+            <li class="weekColumns">Montag</li>
+            <li class="weekColumns">Dienstag</li>
+            <li class="weekColumns">Mittwoch</li>
+            <li class="weekColumns">Donnerstag</li>
+            <li class="weekColumns">Freitag</li>
+            <li class="weekColumns">Samstag</li>
+            <li class="weekColumns">Sonntag</li>
         </ul>
     </div>
     <div id="Squares" class="Squares">
@@ -25,9 +25,15 @@
                 {{counter}}
             </div>
         {% endfor %}
-        {% for counter in listOfDays %}
+        {% for counter, appointmentList in appointmentDict.items %}
             <div id="daySquares" class="daySquares">
                 {{counter}}
+                <ul class="appointment">
+                    <li class="appointmentItem">tets</li>
+<!--                    {% for appointment in appointmentList %}-->
+<!--                        <li class="appointmentItem">{{appointment}}</li>-->
+<!--                    {% endfor %}-->
+                </ul>
             </div>
         {% endfor %}
     </div>

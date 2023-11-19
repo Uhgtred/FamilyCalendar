@@ -7,16 +7,10 @@
   flex-wrap: wrap;
   display: flex;
   width: 1500px;
+  z-index: 0;
 }
 
-ul {
-  list-style: none;
-  padding-left: 0;
-  width: 1500px;
-  padding-right: 20px;
-}
-
-li {
+.weekColumns{
   display: inline-block;
   width: 196px;   /* I do not understand why it has to be 196 instead of 200 */
   margin: 5px;
@@ -24,6 +18,28 @@ li {
   font-weight: bold;
   font-size: 2em;
   text-align: center;
+}
+
+.weekDayList {
+  list-style: none;
+  padding-left: 0;
+  width: 1500px;
+  padding-right: 20px;
+}
+
+.appointment{
+  display: block;
+  padding: 0;
+  position: absolute;
+  z-index: 100;
+}
+
+.appointmentItem {
+  color: black;
+  font-weight: bold;
+  font-size: 1em;
+  text-align: center;
+
 }
 
 .daySquares{
@@ -36,6 +52,7 @@ li {
   font-weight: bold;
   font-size: 2em;
   text-align: center;
+  z-index: 0;
 }
 
 .oldDaySquares{
