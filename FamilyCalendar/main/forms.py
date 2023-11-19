@@ -12,6 +12,19 @@ class CreateCalendar(forms.Form):
     year = forms.IntegerField()
 
 
+class CrateMonth(forms.Form):
+    """
+    Class for receiving the necessary data for creating a month from http
+    """
+    name = forms.CharField(label='Name', max_length=10)
+    month = forms.IntegerField(label='Monatszahl')
+
+
+class CreateDay(forms.Form):
+    day = forms.IntegerField(label='Tageszahl')
+    month = forms.IntegerField(label='Monatszahl')
+
+
 class CreateAppointment(forms.Form):
     """
     Form for receiving data from url.
