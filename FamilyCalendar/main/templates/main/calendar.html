@@ -26,13 +26,13 @@
             </div>
         {% endfor %}
         {% for counter, appointmentList in appointmentDict.items %}
-            <div id="daySquares" class="daySquares">
+            <div class="daySquares">
                 {{counter}}
                 <ul class="appointment">
-                    <li class="appointmentItem">tets</li>
-<!--                    {% for appointment in appointmentList %}-->
-<!--                        <li class="appointmentItem">{{appointment}}</li>-->
-<!--                    {% endfor %}-->
+<!--                    <li class="appointmentItem">tets</li>-->
+                    {% for appointment in appointmentList %}
+                        <li class="appointmentItem">{{appointment}}</li>
+                    {% endfor %}
                 </ul>
             </div>
         {% endfor %}
