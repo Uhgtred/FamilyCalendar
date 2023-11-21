@@ -4,40 +4,36 @@
 <head>
     {% load static %}
     <link rel='stylesheet' href={% static 'baseStyle.css' %}>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src={% static 'mybase.js' %} async></script>
-    <script src="https://code.jquery.com/jquery-3.4.1.js" async></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" async></script>
     <meta charset="UTF-8">
     <title>Family Calendar</title>
 </head>
 
 
+
 <body>
-    <nav class="navigationSideBar">
-        <text>Family Calendar</text>
+<nav class="navigationSideBar">
+        <div class="navBarTitle">Family Calendar</div>
         <ul>
-            <li><a href="#">Home</a></li>
+            <li><a href="#" class="home-btn">Home</a></li>
             <li>
-                <a href="#" class="clnd-btn">Calendar
-                    <span class="fas fa-caret-down first"></span>
-                </a>
+                <a href="#" class="clnd-btn">Calendar</a>
                 <ul class="clnd-optn-show">
                     <li><a href="#" class="view-clnd-btn">View Calendar</a></li>
                     <li><a href="#" class="new-clnd-btn">New Calendar</a></li>
                 </ul>
             </li>
             <li>
-                <a href="#" class="apnt-btn">Appointment
-                    <span class="fas fa-caret-down second"></span>
-                </a>
+                <a href="#" class="apnt-btn">Appointment</a>
                 <ul class="apnt-optn-show">
-                    <li><a href="#" id="new-apnt-btn">New Appointment</a></li>
+                    <li><a href="#" class="new-apnt-btn">New Appointment</a></li>
                 </ul>
             </li>
         </ul>
     </nav>
 
-    <div id="content", name ="content", class="content">
+    <div name ="content", class="content">
         {% block content %}
         {% endblock %}
     </div>

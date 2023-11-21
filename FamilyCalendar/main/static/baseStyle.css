@@ -1,10 +1,10 @@
 body {
-    margin: 0;
+    margin-left: 280px;
     padding: 0;
     user-select: none;
     box-sizing: border-box;
     background-color: #313131;
-    color: #818181;
+    color: black;
 }
 
 nav {
@@ -17,9 +17,10 @@ nav {
     background-color: black;
     overflow-x: hidden;
     padding-top: 20px;
+    color: #818181;
 }
 
-nav text {
+.navBarTitle{
     padding: 6px 8px 6px 16px;
     font-size: 25px;
 }
@@ -30,11 +31,11 @@ nav ul {
     list-style-type: none;
 }
 
-nav ul .clnd-optn-show.show{
+nav ul li .clnd-optn-show.show{
     display: block;
 }
 
-nav ul .apnt-optn-show.show{
+nav ul li .apnt-optn-show.show{
     display: block;
 }
 
@@ -48,17 +49,6 @@ nav ul li a {
 nav ul li a:hover {
     padding: 6px 8px 6px 20px;
     color: #f1f1f1;
-}
-
-nav ul li a span {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    transition: transform 0.4s;
-}
-
-nav ul li a:hover span {
-    transform: translateY(-50%) rotate(-180deg);
 }
 
 nav ul ul {
