@@ -9,14 +9,7 @@
   width: 1500px;
 }
 
-ul {
-  list-style: none;
-  padding-left: 0;
-  width: 1500px;
-  padding-right: 20px;
-}
-
-li {
+.weekColumns{
   display: inline-block;
   width: 196px;   /* I do not understand why it has to be 196 instead of 200 */
   margin: 5px;
@@ -26,22 +19,45 @@ li {
   text-align: center;
 }
 
-.daySquares{
-  background: #616161;
-  width: 200px;
-  height: 100px;
-  margin: 5px;
-  line-height: 100px;
+.weekDayList {
+  padding-left: 0;
+  width: 1500px;
+  padding-right: 20px;
+}
+
+.appointment{
+  list-style-type: none;
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 0;
+}
+
+.appointmentItem {
   color: black;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 15px;
   text-align: center;
+
+}
+
+.daySquares{
+  position: relative;
+  background: #616161;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  line-height: 30px;
+  color: black;
+  text-align: left;
+  font-weight: bold;
+  font-size: 2em;
 }
 
 .oldDaySquares{
   background: #353535;
   width: 200px;
-  height: 100px;
+  height: 200px;
   margin: 5px;
   line-height: 100px;
   color: #212121;

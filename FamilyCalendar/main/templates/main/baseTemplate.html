@@ -3,42 +3,37 @@
 
 <head>
     {% load static %}
-    <link rel='stylesheet' href={% static 'style.css' %}>
+    <link rel='stylesheet' href={% static 'baseStyle.css' %}>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script src={% static 'mybase.js' %} async></script>
     <meta charset="UTF-8">
     <title>Family Calendar</title>
 </head>
 
 
-<body>
-    <div class="navigationSideBar">
-        <div class="subNavigation">
-            <a href="/">Home</a>
-            <div class="subNavContent">
-                <a href="/calendars">Calendars</a>
-            </div>
-        </div>
-        <div class="subNavigation">
-            <a href>Calendar</a>
-            <div class="subNavContent">
-                <a href="/CreateCalendar">New Calendar</a>
-            </div>
-        </div>
-        <div class="subNavigation">
-            <a href="/CreateAppointment">Create Appointment</a>
-            <div class="subNavContent">
-                <a href="/calendars">Calendars</a>
-            </div>
-        </div>
-        <div class="subNavigation">
-            <a href="/calendars">View Calendars</a>
-            <div class="subNavContent">
-                <a href="/calendars">Calendars</a>
-            </div>
-        </div>
-    </div>
 
-    <div id="content", name ="content", class="content">
+<body>
+<nav class="navigationSideBar">
+        <div class="navBarTitle">Family Calendar</div>
+        <ul>
+            <li><a href="#" class="home-btn">Home</a></li>
+            <li>
+                <a href="#" class="clnd-btn">Calendar</a>
+                <ul class="clnd-optn-show">
+                    <li><a href="#" class="view-clnd-btn">View Calendar</a></li>
+                    <li><a href="#" class="new-clnd-btn">New Calendar</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="apnt-btn">Appointment</a>
+                <ul class="apnt-optn-show">
+                    <li><a href="#" class="new-apnt-btn">New Appointment</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
+
+    <div name ="content", class="content">
         {% block content %}
         {% endblock %}
     </div>
