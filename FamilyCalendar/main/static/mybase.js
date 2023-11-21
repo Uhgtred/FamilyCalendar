@@ -1,21 +1,13 @@
-const subNavigationElements = document.getElementsByClassName('subNavigation');
-
 const basePath = window.location.origin;
 const currentYear = new Date().getFullYear();
-const currentMonth = new Date().getMonth() + 1
 
-
-function printCalendarEvent(){
-    const pageUrl = basePath + '/calendar/' + currentYear + '/' + currentMonth;
+function visitURLEvent(url){
     window.close(); // TODO: change this at some point. This feels wrong.
-    window.open(pageUrl);
+    window.open(url);
 }
 
-for (let counter = 0; counter < subNavigationElements.length; counter++) {
-    let subElement = subNavigationElements[counter]
-    switch (subElement.innerText){
-        case 'Calendar':
-            subElement.addEventListener('click', printCalendarEvent);
-
-    }
-}
+const currentMonth = new Date().getMonth() + 1;
+$('.clnd-btn').click(function (){$('nav ul .clnd-optn-show').toggleClass("show")});
+$('.apnt-btn').click(function (){$('nav ul .apnt-optn-show').toggleClass("show")});
+$('.view-clnd-btn').click(function (){visitURLEvent(basePath + '/calendar/' + currentYear + '/' + currentMonth)});
+$('.new-clnd-btn').click(function (){visitURLEvent(basePath + '/CreateCalendar/')});

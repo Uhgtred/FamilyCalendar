@@ -3,40 +3,39 @@
 
 <head>
     {% load static %}
-    <link rel='stylesheet' href={% static 'style.css' %}>
+    <link rel='stylesheet' href={% static 'baseStyle.css' %}>
     <script src={% static 'mybase.js' %} async></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" async></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" async></script>
     <meta charset="UTF-8">
     <title>Family Calendar</title>
 </head>
 
 
 <body>
-    <div class="navigationSideBar">
-        <div class="subNavigation">
-            <a href="/">Home</a>
-            <div class="subNavContent">
-                <a href="/calendars">Calendars</a>
-            </div>
-        </div>
-        <div class="subNavigation">
-            <a href>Calendar</a>
-            <div class="subNavContent">
-                <a href="/CreateCalendar">New Calendar</a>
-            </div>
-        </div>
-        <div class="subNavigation">
-            <a href="/CreateAppointment">Create Appointment</a>
-            <div class="subNavContent">
-                <a href="/calendars">Calendars</a>
-            </div>
-        </div>
-        <div class="subNavigation">
-            <a href="/calendars">View Calendars</a>
-            <div class="subNavContent">
-                <a href="/calendars">Calendars</a>
-            </div>
-        </div>
-    </div>
+    <nav class="navigationSideBar">
+        <text>Family Calendar</text>
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li>
+                <a href="#" class="clnd-btn">Calendar
+                    <span class="fas fa-caret-down first"></span>
+                </a>
+                <ul class="clnd-optn-show">
+                    <li><a href="#" class="view-clnd-btn">View Calendar</a></li>
+                    <li><a href="#" class="new-clnd-btn">New Calendar</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#" class="apnt-btn">Appointment
+                    <span class="fas fa-caret-down second"></span>
+                </a>
+                <ul class="apnt-optn-show">
+                    <li><a href="#" id="new-apnt-btn">New Appointment</a></li>
+                </ul>
+            </li>
+        </ul>
+    </nav>
 
     <div id="content", name ="content", class="content">
         {% block content %}
