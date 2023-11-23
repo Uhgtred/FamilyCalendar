@@ -1,11 +1,12 @@
-const days = document.getElementsByClassName('daySquares')
-console.log(days)
+const appointments = document.getElementsByClassName('appointmentItemBtn');
 
-function printSomething(day){
-    console.log('Clicked day ' + (day + 1) + ' of a Month!')
+function appointmentBtnFunction (appointmentID) {
+    // open url of the appointment
+    console.log(appointmentID)
+    let url = basePath + '/Appointment/' + appointmentID
 }
 
-for (let counter = 0; counter < days.length; counter++){
-    const daySquare = days[counter]
-    daySquare.addEventListener('click', function (){printSomething(counter)})
+for (let counter = 0; counter < appointments.length; counter++){
+    const appointment = appointments[counter];
+    appointment.addEventListener('click', function () {appointmentBtnFunction(appointment.id)});
 }

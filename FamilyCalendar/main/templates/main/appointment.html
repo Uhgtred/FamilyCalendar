@@ -4,12 +4,10 @@
 
 {% block content %}
 <h1>{{name}}</h1>
-{% for appointment in list %}
     <ul>
         <li>{{appointment.date}}</li>
         <li>{{appointment.description}}</li>
         <li>{{appointment.persons}}</li>
     </ul>
-{% endfor %}
 {% endblock %}
 </html>

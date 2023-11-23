@@ -30,7 +30,7 @@
                 {{counter}}
                 <ul class="appointment">
                     {% for appointment in appointmentList %}
-                        <li class="appointmentItem">{{appointment}}</li>
+                        <li><a href='#' class="appointmentItemBtn" id={{appointment.1}}>{{appointment.0}}</a></li>
                     {% endfor %}
                 </ul>
             </div>

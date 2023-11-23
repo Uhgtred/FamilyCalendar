@@ -1,6 +1,5 @@
 from datetime import datetime
 
-from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 import calendar
 
@@ -33,12 +32,12 @@ class Calendars:
         days = monthInstance.day_set.all()
         appointmentDict = {}
         for day in days:
-            appointmentDict[str(day.day + 1)] = [appointment.name for appointment in day.appointment_set.all()]
+            appointmentDict[str(day.day + 1)] = [(appointment.name, appointment.id) for appointment in day.appointment_set.all()]
         numberOfDaysInPreviousMonth = calendar.monthrange(year, month - 1)[1]
         # Making the days of the last month visible back until monday.
         daysBeforeList = [i for i in reversed(range(numberOfDaysInPreviousMonth, (numberOfDaysInPreviousMonth - firstDay), -1))]
         monthName = monthInstance.name
-        return render(response, 'main/calendar.html', {'year': year, 'month': monthName, 'appointmentDict': appointmentDict, 'listOfLastMonth': daysBeforeList})#, 'appointmentDict': appointmentDict})
+        return render(response, 'main/calendar.html', {'year': year, 'month': monthName, 'appointmentDict': appointmentDict, 'listOfLastMonth': daysBeforeList})
 
     @staticmethod
     def allCalendars(response):
@@ -74,7 +73,7 @@ class Calendars:
             calendar_.save()
             cls.createMonths(calendar_)
             cls.createDays(calendar_)
-            return render(response, f'main/calendar.html/{year}/{datetime.now().month}')
+            return render(response, 'main/createCalendar.html') # TODO: direct to some page that informs about success of creating a new calendar
         return render(response, 'main/createCalendar.html', {'form': form})
 
     @classmethod
@@ -114,22 +113,22 @@ class Appointments:
             persons = form.cleaned_data['persons']
             yearInstance = Calendar.objects.get(year=date.year)
             monthInstance = yearInstance.month_set.get(month=date.month)
-            day = monthInstance.day_set.get(day=date.day - 1) # TODO: this is not correct, but does the job for the moment!
+            day = monthInstance.day_set.get(day=date.day - 1)
             day.appointment_set.create(name=name, description=description, date=date, persons=persons)
-            return render(response, f'main/calendar.html/{date.year}/{date.month}')
+            return Calendars.calendarPage(response, date.year, date.month)
         return render(response, 'main/createAppointment.html', {'form': form})
 
     @staticmethod
-    def appointment(response, name: str):
+    def appointment(response, id: int) -> render:
         """
         Method for viewing the details of a specific appointment.
         :param name:
         :param response: Response passed from the form.
         :return: Render of the appointment that will be shown.
         """
-        appointments = Appointment.objects.all()
-        relevantAppointments: list = []
-        for appointment in appointments:
-            if appointment.name == name:
-                relevantAppointments.append(appointment)
-        return render(response, 'main/appointment.html', {'list': relevantAppointments, 'name': name})
+        appointment = Appointment.objects.get(id=id)
+        # relevantAppointments: list = []
+        # for appointment in appointments:
+        #     if appointment.name == name:
+        #         relevantAppointments.append(appointment)
+        return render(response, 'main/appointment.html', {'appointment': appointment, 'name': appointment.name})
