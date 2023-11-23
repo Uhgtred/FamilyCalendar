@@ -122,7 +122,7 @@ class Appointments:
     def appointment(response, id: int) -> render:
         """
         Method for viewing the details of a specific appointment.
-        :param name:
+        :param id: Id that is used for identifying an appointment.
         :param response: Response passed from the form.
         :return: Render of the appointment that will be shown.
         """

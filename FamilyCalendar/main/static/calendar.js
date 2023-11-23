@@ -3,7 +3,7 @@ const appointments = document.getElementsByClassName('appointmentItemBtn');
 function appointmentBtnFunction (appointmentID) {
     // open url of the appointment
     console.log(appointmentID);
-    let url = basePath + '/Appointment/' + appointmentID;
+    let url = basePath + '/appointment/' + appointmentID;
     window.location.replace(url);
 }
 
