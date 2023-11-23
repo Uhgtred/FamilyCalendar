@@ -6,7 +6,7 @@ from . import views
 
 urlpatterns = [
     path("", views.home, name='home'),
-    path('appointment/<str:name>/', views.Appointments.appointment, name='appointment'),
+    path('appointment/<int:id>/', views.Appointments.appointment, name='appointment'),
     path('calendars/', views.Calendars.allCalendars, name='calendarList'),
     path('calendar/<int:year>/<int:month>/', views.Calendars.calendarPage, name='calendar'),
     path("CreateCalendar/", views.Calendars.createCalendar, name='createCalendar'),
