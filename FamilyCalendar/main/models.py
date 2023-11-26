@@ -42,6 +42,7 @@ class Appointment(models.Model):
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
     date = models.DateTimeField()
+    endDate = models.DateTimeField()
     persons = models.CharField(max_length=100)
 
     def __str__(self):

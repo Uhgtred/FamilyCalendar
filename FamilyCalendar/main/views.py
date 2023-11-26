@@ -111,10 +111,11 @@ class Appointments:
             description = form.cleaned_data['description']
             date = form.cleaned_data['date']
             persons = form.cleaned_data['persons']
+            endDate = form.cleaned_data['endDate']
             yearInstance = Calendar.objects.get(year=date.year)
             monthInstance = yearInstance.month_set.get(month=date.month)
             day = monthInstance.day_set.get(day=date.day - 1)
-            day.appointment_set.create(name=name, description=description, date=date, persons=persons)
+            day.appointment_set.create(name=name, description=description, date=date, persons=persons, endDate=endDate)
             return Calendars.calendarPage(response, date.year, date.month)
         return render(response, 'main/createAppointment.html', {'form': form})
 

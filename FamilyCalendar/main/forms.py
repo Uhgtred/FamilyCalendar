@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
 # @author      Markus Kösters
+import datetime
 
 from django import forms
 
@@ -20,6 +21,8 @@ class CreateAppointment(forms.Form):
     name = forms.CharField(label='Name', max_length=50)
     # date on which the appointment occurs.
     date = forms.DateTimeField(widget=forms.TextInput(attrs={'type': 'datetime-local'}), label='Datum')
+    # end of appointment
+    endDate = forms.DateTimeField(widget=forms.TextInput(attrs={'type': 'datetime-local'}), label='Ende des Termins', required=False)
     # persons who need to attend the appointment.
     persons = forms.CharField(label='Teilnehmer', max_length=100, required=False)
     # description of the appointment.
