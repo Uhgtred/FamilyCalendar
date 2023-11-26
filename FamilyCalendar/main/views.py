@@ -40,7 +40,7 @@ class Calendars:
         return render(response, 'main/calendar.html', {'year': year, 'month': monthName, 'appointmentDict': appointmentDict, 'listOfLastMonth': daysBeforeList})
 
     @staticmethod
-    def allCalendars(response):
+    def allCalendars(response) -> render:
         """
         Method for showing an overview of all existing calendars.
         :param response: Response passed from the form.
