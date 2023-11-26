@@ -19,8 +19,8 @@ class CreateAppointment(forms.Form):
     # name of the appointment.
     name = forms.CharField(label='Name', max_length=50)
     # date on which the appointment occurs.
-    date = forms.DateField(widget=forms.TextInput(attrs={'class': 'form-control', 'type': 'date'}), label='Datum')
+    date = forms.DateTimeField(widget=forms.TextInput(attrs={'type': 'datetime-local'}), label='Datum')
     # persons who need to attend the appointment.
-    persons = forms.CharField(label='Teilnehmer', max_length=100)
+    persons = forms.CharField(label='Teilnehmer', max_length=100, required=False)
     # description of the appointment.
-    description = forms.CharField(label='Beschreibung', max_length=250)
+    description = forms.CharField(label='Beschreibung', max_length=250, required=False)

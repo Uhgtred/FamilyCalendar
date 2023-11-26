@@ -17,7 +17,7 @@ class Calendars:
     """
 
     @staticmethod
-    def calendarPage(response, year: int, month: int):
+    def calendarPage(response, year: int, month: int) -> render:
         """
         Method for viewing a calendar-page of a specified year.
         And all assigned Appointments.
@@ -32,7 +32,7 @@ class Calendars:
         days = monthInstance.day_set.all()
         appointmentDict = {}
         for day in days:
-            appointmentDict[str(day.day + 1)] = [(appointment.name, appointment.id) for appointment in day.appointment_set.all()]
+            appointmentDict[str(day.day + 1)] = [(appointment.name, appointment.date, appointment.id) for appointment in day.appointment_set.all()]
         numberOfDaysInPreviousMonth = calendar.monthrange(year, month - 1)[1]
         # Making the days of the last month visible back until monday.
         daysBeforeList = [i for i in reversed(range(numberOfDaysInPreviousMonth, (numberOfDaysInPreviousMonth - firstDay), -1))]
@@ -127,8 +127,4 @@ class Appointments:
         :return: Render of the appointment that will be shown.
         """
         appointment = Appointment.objects.get(id=id)
-        # relevantAppointments: list = []
-        # for appointment in appointments:
-        #     if appointment.name == name:
-        #         relevantAppointments.append(appointment)
         return render(response, 'main/appointment.html', {'appointment': appointment, 'name': appointment.name})

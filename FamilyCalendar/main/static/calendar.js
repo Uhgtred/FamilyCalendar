@@ -8,6 +8,7 @@ function appointmentBtnFunction (appointmentID) {
 }
 
 for (let counter = 0; counter < appointments.length; counter++){
+    // adding a button-event to each appointment in a calendar-day
     const appointment = appointments[counter];
     appointment.addEventListener('click', function () {appointmentBtnFunction(appointment.id)});
 }

@@ -41,7 +41,7 @@ class Appointment(models.Model):
     month = models.ForeignKey(Day, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     description = models.CharField(max_length=250)
-    date = models.DateField()
+    date = models.DateTimeField()
     persons = models.CharField(max_length=100)
 
     def __str__(self):
