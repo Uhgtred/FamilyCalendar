@@ -5,9 +5,10 @@
 {% block content %}
 <h1>{{name}}</h1>
     <ul>
-        <li>{{appointment.date}}</li>
-        <li>{{appointment.description}}</li>
-        <li>{{appointment.persons}}</li>
+        <li>Von:        {{appointment.date}}</li>
+        <li>Bis:        {{appointment.endDate}}</li>
+        <li>Details:    {{appointment.description}}</li>
+        <li>Teilnehmer: {{appointment.persons}}</li>
     </ul>
 {% endblock %}
 </html>
