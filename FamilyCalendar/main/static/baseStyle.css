@@ -31,11 +31,7 @@ nav ul {
     list-style-type: none;
 }
 
-nav ul li .calendarMenu.show{
-    display: block;
-}
-
-nav ul li .slideMenu.show{
+.show{
     display: block;
 }
 
