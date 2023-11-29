@@ -31,11 +31,11 @@ nav ul {
     list-style-type: none;
 }
 
-nav ul li .clnd-optn-show.show{
+nav ul li .calendarMenu.show{
     display: block;
 }
 
-nav ul li .apnt-optn-show.show{
+nav ul li .slideMenu.show{
     display: block;
 }
 
