@@ -8,23 +8,25 @@ function visitURLEvent(url){
 
 function navButtonEvent(subNavContent){
     // subNavContent.toggleClass('show');
-    subNavContent.classList.toggle('calendarMenu');
+    subNavContent.classList.toggle('show');
 }
 
-const homeClass = document.getElementsByClassName('home-btn');
-homeClass[0].addEventListener('click', function (){visitURLEvent('')});
+const homeClass = document.getElementsByClassName('home-btn')[0];
+homeClass.addEventListener('click', function (){visitURLEvent('')});
 
-const calendarMenuClass = document.getElementsByClassName('calendarMenu-btn')[0];
-calendarMenuClass.addEventListener('click', function (){navButtonEvent(calendarMenuClass)});
+const calendarMenuClass = document.getElementsByClassName('calendarMenu')[0];
+const calendarMenuButton = document.getElementsByClassName('calendarMenu-btn')[0];
+calendarMenuButton.addEventListener('click', function (){navButtonEvent(calendarMenuClass)});
 
-const viewCalendarButton = document.getElementsByClassName('view-calendar-btn');
-viewCalendarButton[0].addEventListener('click', function (){visitURLEvent('/calendar/' + currentYear + '/' + currentMonth)});
+const viewCalendarButton = document.getElementsByClassName('view-calendar-btn')[0];
+viewCalendarButton.addEventListener('click', function (){visitURLEvent('/calendar/' + currentYear + '/' + currentMonth)});
 
-const newCalendarButton = document.getElementsByClassName('new-calendar-btn');
-newCalendarButton[0].addEventListener('click', function (){visitURLEvent('/CreateCalendar/')});
+const newCalendarButton = document.getElementsByClassName('new-calendar-btn')[0];
+newCalendarButton.addEventListener('click', function (){visitURLEvent('/CreateCalendar/')});
 
-const newAppointmentButton = document.getElementsByClassName('new-appointment-btn');
-newAppointmentButton[0].addEventListener('click', function (){visitURLEvent('/CreateAppointment/')})
+const newAppointmentButton = document.getElementsByClassName('new-appointment-btn')[0];
+newAppointmentButton.addEventListener('click', function (){visitURLEvent('/CreateAppointment/')})
 
-const slideMenuClass = document.getElementsByClassName('slideMenu');
-slideMenuClass[0].addEventListener('click', function () {navButtonEvent($('nav ul .slideMenu'))});
+const slideMenuClass = document.getElementsByClassName('slideMenu')[0];
+const slideMenuButton = document.getElementsByClassName('slideMenu-btn')[0];
+slideMenuButton.addEventListener('click', function () {navButtonEvent(slideMenuClass)});
