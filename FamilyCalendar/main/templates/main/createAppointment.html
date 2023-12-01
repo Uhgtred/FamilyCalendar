@@ -5,13 +5,13 @@
 {% block content %}
 {% load static %}
 
-<!--<link rel='stylesheet' href={% static 'createAppointment.css' %}>-->
-Create appointment
+<link rel='stylesheet' href={% static 'formStyler.css' %}>
+<h1>Create appointment</h1>
 <form method="post" action="/CreateAppointment/">
     {% csrf_token %}
     {{form.as_ul}}
     <button type="submit" , name="save">
-        Create new Appointment
+        Save
     </button>
     <script src={% static 'createAppointment.js' %} async></script>
 </form>

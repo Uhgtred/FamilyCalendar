@@ -3,7 +3,9 @@
 {% extends 'main/baseTemplate.html' %}
 
 {% block content %}
-Create appointment
+{% load static %}
+<link rel='stylesheet' href={% static 'formStyler.css' %}>
+<h1>Create Calendar</h1>
 <form method="post" action="/CreateCalendar/">
     {% csrf_token %}
     {{form.as_ul}}

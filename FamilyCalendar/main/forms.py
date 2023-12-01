@@ -15,7 +15,7 @@ class CreateCalendar(forms.Form):
 
 class CreateAppointment(forms.Form):
     """
-    Form for receiving data from url.
+    Form for receiving data from url.S
     """
     # name of the appointment.
     name = forms.CharField(label='Name', max_length=50)
@@ -26,4 +26,4 @@ class CreateAppointment(forms.Form):
     # persons who need to attend the appointment.
     persons = forms.CharField(label='Teilnehmer', max_length=100, required=False)
     # description of the appointment.
-    description = forms.CharField(label='Beschreibung', max_length=250, required=False)
+    description = forms.CharField(widget=forms.Textarea(), label='Beschreibung', max_length=250, required=False)

@@ -1,0 +1,34 @@
+body{
+    font-size: 25px;
+}
+
+form {
+    padding: 6px 8px 6px 16px;
+    display: block;
+    list-style-type: none;
+}
+
+input {
+    display: block;
+    font-size: 20px;
+    width: 30%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #818181;
+}
+
+button {
+    background-color: #818181;
+    border-radius: 4px;
+    font-size: 20px;
+}
+
+textarea{
+    display: block;
+    font-size: 20px;
+    width: 30%;
+    margin-bottom: 10px;
+    border-radius: 4px;
+    background-color: #818181;
+    height: 80px;
+}
