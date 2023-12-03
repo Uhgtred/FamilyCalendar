@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "gui/baseTemplate.html" %}
+
+{% block content %}
+{% load static %}
+<link rel='stylesheet' href={% static 'styles/appointmentStyle.css' %}>
+<h1>{{name}}</h1>
+    <ul class="appointmentDetails">
+        <li>Von:        {{appointment.date}}</li>
+        <li>Bis:        {{appointment.endDate}}</li>
+        <li>Details:    {{appointment.description}}</li>
+        <li>Teilnehmer: {{appointment.persons}}</li>
+    </ul>
+{% endblock %}
+</html>

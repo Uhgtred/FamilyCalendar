@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends 'gui/baseTemplate.html' %}
+
+{% block content %}
+{% load static %}
+<link rel='stylesheet' href={% static 'styles/formStyler.css' %}>
+<h1>Create Calendar</h1>
+<form method="post" action="/CreateCalendar/">
+    {% csrf_token %}
+    {{form.as_ul}}
+    <button type="submit" , name="save">
+        Create new Calendar
+    </button>
+</form>
+{% endblock %}

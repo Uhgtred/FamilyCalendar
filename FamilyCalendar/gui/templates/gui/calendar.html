@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+{% extends "gui/baseTemplate.html" %}
+<!--This view is for displaying a month of a calendar with 7 days in a row -->
+
+{% block content %}
+    {% load static %}
+    <link rel='stylesheet' href={% static 'styles/calendar.css' %}>
+    <script src={% static 'functionality/calendar.js' %} async></script>
+    <h1>{{month}} {{year}}</h1>
+    <div id="weekDays", class="weekDays">
+        <ul class="weekDayList">
+            <li class="weekColumns">Montag</li>
+            <li class="weekColumns">Dienstag</li>
+            <li class="weekColumns">Mittwoch</li>
+            <li class="weekColumns">Donnerstag</li>
+            <li class="weekColumns">Freitag</li>
+            <li class="weekColumns">Samstag</li>
+            <li class="weekColumns">Sonntag</li>
+        </ul>
+    </div>
+    <div id="Squares" class="Squares">
+        {% for counter in listOfLastMonth %}
+            <div id="oldDaySquares" class="oldDaySquares">
+                {{counter}}
+            </div>
+        {% endfor %}
+        {% for counter, appointmentList in appointmentDict.items %}
+            <div class="daySquares">
+                {{counter}}
+                <ul class="appointment">
+                    {% for appointment in appointmentList %}
+                        <li><a href='#' class="appointmentItemBtn" id={{appointment.2}}>{{appointment.1.hour}}:{{appointment.1.minute}} {{appointment.0}}</a></li>
+                    {% endfor %}
+                </ul>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}
+</html>

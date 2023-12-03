@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/FamilyCalendar.iml" filepath="$PROJECT_DIR$/.idea/FamilyCalendar.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../FamilyCalendarProject/.idea/FamilyCalendarProject.iml" filepath="$PROJECT_DIR$/../FamilyCalendarProject/.idea/FamilyCalendarProject.iml" />
     </modules>
   </component>
 </project>

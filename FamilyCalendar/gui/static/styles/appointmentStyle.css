@@ -1,0 +1,9 @@
+body{
+    font-size: 25px;
+}
+
+.appointmentDetails{
+    list-style-type: none;
+    padding: 6px;
+    display: block;
+}
