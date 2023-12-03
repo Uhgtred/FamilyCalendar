@@ -1,5 +1,25 @@
 /*This view is for displaying a month of a calendar with 7 days in a row*/
 
+.calendarHeader{
+  display: flex;
+  flex-direction: row;
+  color: black;
+  font-size: 25px;
+  text-decoration: none;
+  vertical-align: top;
+}
+
+.calendarHeader a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.calendarHeader a:hover {
+  color: #f1f1f1;
+}
+
 #Squares {
   padding: 0;
   margin: 0;
@@ -70,3 +90,4 @@ ul li a:hover{
   font-size: 2em;
   text-align: center;
 }
+

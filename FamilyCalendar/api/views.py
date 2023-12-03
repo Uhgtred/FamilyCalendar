@@ -33,10 +33,13 @@ class Calendars:
         appointmentDict = {}
         for day in days:
             appointmentDict[str(day.day + 1)] = [(appointment.name, appointment.date, appointment.id) for appointment in day.appointment_set.all()]
-        numberOfDaysInPreviousMonth = calendar.monthrange(year, month - 1)[1]
+        if month == 1:
+            numberOfDaysInPreviousMonth = calendar.monthrange(year, 12)[1]
+        else:
+            numberOfDaysInPreviousMonth = calendar.monthrange(year, month - 1)[1]
         # Making the days of the last month visible back until monday.
         daysBeforeList = [i for i in reversed(range(numberOfDaysInPreviousMonth, (numberOfDaysInPreviousMonth - firstDay), -1))]
-        monthName = monthInstance.name
+        monthName = monthInstance.month
         return render(response, 'gui/calendar.html', {'year': year, 'month': monthName, 'appointmentDict': appointmentDict, 'listOfLastMonth': daysBeforeList})
 
     @staticmethod

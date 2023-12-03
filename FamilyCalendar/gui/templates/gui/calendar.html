@@ -5,9 +5,13 @@
 
 {% block content %}
     {% load static %}
-    <link rel='stylesheet' href={% static 'styles/calendar.css' %}>
-    <script src={% static 'functionality/calendar.js' %} async></script>
-    <h1>{{month}} {{year}}</h1>
+    <link rel='stylesheet' href={% static 'calendar.css' %}>
+    <script src={% static 'calendar.js' %} async></script>
+    <div class="calendarHeader">
+        <a href="#" id='previousMonth' class="monthSelect"><</a>
+        <h1>{{month}} {{year}}</h1>
+        <a href="#", id="nextMonth" class="monthSelect">></a>
+    </div>
     <div id="weekDays", class="weekDays">
         <ul class="weekDayList">
             <li class="weekColumns">Montag</li>
