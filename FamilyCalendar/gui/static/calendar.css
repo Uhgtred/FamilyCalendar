@@ -1,0 +1,93 @@
+/*This view is for displaying a month of a calendar with 7 days in a row*/
+
+.calendarHeader{
+  display: flex;
+  flex-direction: row;
+  color: black;
+  font-size: 25px;
+  text-decoration: none;
+  vertical-align: top;
+}
+
+.calendarHeader a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none;
+  font-size: 25px;
+}
+
+.calendarHeader a:hover {
+  color: #f1f1f1;
+}
+
+#Squares {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  flex-wrap: wrap;
+  display: flex;
+  width: 1500px;
+}
+
+.weekColumns{
+  display: inline-block;
+  width: 196px;   /* I do not understand why it has to be 196 instead of 200 */
+  margin: 5px;
+  color: black;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+
+.weekDayList {
+  padding-left: 0;
+  width: 1500px;
+  padding-right: 20px;
+}
+
+.appointment{
+  list-style-type: none;
+  position: absolute;
+  top: 0;
+  padding: 0;
+  line-height: 10px;
+  margin-left: 5px;
+}
+
+ul li a{
+  color: black;
+  font-weight: bold;
+  font-size: 15px;
+  text-align: center;
+  text-decoration: none;
+}
+
+ul li a:hover{
+  color: #f1f1f1;
+}
+
+.daySquares{
+  position: relative;
+  background: #616161;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  line-height: 30px;
+  color: black;
+  text-align: left;
+  font-weight: bold;
+  font-size: 2em;
+}
+
+.oldDaySquares{
+  background: #353535;
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+  line-height: 100px;
+  color: #212121;
+  font-weight: bold;
+  font-size: 2em;
+  text-align: center;
+}
+
