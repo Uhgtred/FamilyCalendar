@@ -23,9 +23,25 @@ for (let counter = 0; counter < appointments.length; counter++){
 }
 
 function monthSwitcher(direction){
-    if (Number(month) == 12 && direction=='up'){
-        window.location.replace(basePath + '/' + 'calendar' + '/' + Number(year+1) + '/' +  1);
+    if (direction == 'up'){
+        month++;
     }
+    else{
+        month--;
+    }
+    if (Number(month) > 12){
+        month = 1;
+        //TODO
+        // have to or make sure calendar of this year is existing.
+        // year++;
+    }
+    if (Number(month) < 1){
+        month = 12;
+        //TODO
+        // have to or make sure calendar of this year is existing.
+        // year--;
+    }
+    window.location.replace(basePath + '/' + 'calendar' + '/' + Number(year) + '/' +  month);
 }
-monthButtons[0].addEventListener('click',function (){window.location.replace(basePath + '/' + 'calendar' + '/' + year + '/' +  (Number(month)-1))});
-monthButtons[1].addEventListener('click',function (){window.location.replace(basePath + '/' + 'calendar' + '/' + year + '/' +  (Number(month)+1))});
+monthButtons[0].addEventListener('click',function (){monthSwitcher('down')});
+monthButtons[1].addEventListener('click',function (){monthSwitcher('up')});
