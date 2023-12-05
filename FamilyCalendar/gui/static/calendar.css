@@ -1,12 +1,14 @@
 /*This view is for displaying a month of a calendar with 7 days in a row*/
 
-.calendarHeader{
-  display: flex;
-  flex-direction: row;
+.calendarHeader ul{
   color: black;
   font-size: 25px;
+}
+
+.calendarHeader ul li{
+  display: inline-block;
   text-decoration: none;
-  vertical-align: top;
+  list-style-type: none;
 }
 
 .calendarHeader a{

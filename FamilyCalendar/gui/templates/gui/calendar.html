@@ -8,9 +8,11 @@
     <link rel='stylesheet' href={% static 'calendar.css' %}>
     <script src={% static 'calendar.js' %} async></script>
     <div class="calendarHeader">
-        <a href="#" id='previousMonth' class="monthSelect"><</a>
-        <h1>{{month}} {{year}}</h1>
-        <a href="#", id="nextMonth" class="monthSelect">></a>
+        <ul>
+            <li><a href="#" id='previousMonth' class="monthSelect"><</a></li>
+            <li><h1>{{month}} {{year}}</h1></li>
+            <li><a href="#" id="nextMonth" class="monthSelect">></a></li>
+        </ul>
     </div>
     <div id="weekDays", class="weekDays">
         <ul class="weekDayList">
