@@ -32,13 +32,13 @@ function monthSwitcher(direction){
     if (Number(month) > 12){
         month = 1;
         //TODO
-        // have to or make sure calendar of this year is existing.
+        // have to make sure calendar of this year is existing.
         // year++;
     }
     if (Number(month) < 1){
         month = 12;
         //TODO
-        // have to or make sure calendar of this year is existing.
+        // have to make sure calendar of this year is existing.
         // year--;
     }
     window.location.replace(basePath + '/' + 'calendar' + '/' + Number(year) + '/' +  month);

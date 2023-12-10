@@ -3,6 +3,8 @@
 .calendarHeader ul{
   color: black;
   font-size: 25px;
+  margin-top: 0;
+  margin-left: 0;
 }
 
 .calendarHeader ul li{
@@ -11,14 +13,11 @@
   list-style-type: none;
 }
 
-.calendarHeader a{
-  color: black;
-  font-weight: bold;
-  text-decoration: none;
-  font-size: 25px;
+.calendarHeader ul li a{
+  font-size: 50px;
 }
 
-.calendarHeader a:hover {
+.calendarHeader ul li a:hover {
   color: #f1f1f1;
 }
 
@@ -36,8 +35,8 @@
   width: 196px;   /* I do not understand why it has to be 196 instead of 200 */
   margin: 5px;
   color: black;
+  font-size: 30px;
   font-weight: bold;
-  font-size: 2em;
   text-align: center;
 }
 
@@ -53,13 +52,14 @@
   top: 0;
   padding: 0;
   line-height: 10px;
-  margin-left: 5px;
+  margin: 35px 5px 5px;
+  font-size: 15px;
 }
 
 ul li a{
   color: black;
   font-weight: bold;
-  font-size: 15px;
+  font-size: 20px;
   text-align: center;
   text-decoration: none;
 }
@@ -78,18 +78,19 @@ ul li a:hover{
   color: black;
   text-align: left;
   font-weight: bold;
-  font-size: 2em;
+  font-size: 25px;
 }
 
 .oldDaySquares{
   background: #353535;
+  color: #212121;
+  position: relative;
   width: 200px;
   height: 200px;
   margin: 5px;
-  line-height: 100px;
-  color: #212121;
+  line-height: 30px;
+  text-align: left;
   font-weight: bold;
-  font-size: 2em;
-  text-align: center;
+  font-size: 25px;
 }
 

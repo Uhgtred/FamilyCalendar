@@ -1,9 +1,5 @@
-body{
-    font-size: 25px;
-}
-
 form {
-    padding: 6px 8px 6px 16px;
+    /*padding: 6px 8px 6px 16px;*/
     display: block;
     list-style-type: none;
 }
