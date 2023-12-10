@@ -74,7 +74,7 @@ class Calendars:
             calendar_.save()
             cls.createMonths(calendar_)
             cls.createDays(calendar_)
-            return render(response, 'gui/createCalendar.html') # TODO: direct to some page that informs about success of creating a new calendar
+            return render(response, 'gui/createCalendar.html', {'form': form}) # TODO: popup that informs about success of creating a new calendar
         return render(response, 'gui/createCalendar.html', {'form': form})
 
     @classmethod
