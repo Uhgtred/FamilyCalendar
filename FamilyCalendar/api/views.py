@@ -2,7 +2,7 @@ from datetime import datetime
 
 from django.shortcuts import render
 import calendar
-from gui.models import Calendar, Appointment, Month, Day
+from api.models import Calendar, Appointment, Month, Day
 
 from gui.forms import CreateCalendar, CreateAppointment
 
