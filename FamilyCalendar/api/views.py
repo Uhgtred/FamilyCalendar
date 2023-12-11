@@ -5,7 +5,7 @@ from django.shortcuts import render
 from gui.forms import CreateCalendar, CreateAppointment
 
 
-def home(response):
+def home(response) -> render:
     return render(response, 'gui/home.html', {})
 
 
@@ -51,7 +51,7 @@ class Calendars:
         return render(response, 'gui/allCalendars.html', {'list': calendars})
 
     @classmethod
-    def createCalendar(cls, response):
+    def createCalendar(cls, response) -> render:
         """
         Method for creating a new calendar.
         :param response: Response passed from the form.
@@ -78,13 +78,13 @@ class Calendars:
         return render(response, 'gui/createCalendar.html', {'form': form})
 
     @classmethod
-    def createMonths(cls, calendar_) -> None:
+    def createMonths(cls, calendar_: Calendar) -> None:
         for month in range(1, 13):
             calendar_.month_set.create(month=month, name=calendar.month_name[month])
         calendar_.save()
 
     @classmethod
-    def createDays(cls, calendar_):
+    def createDays(cls, calendar_: Calendar) -> None:
         months = calendar_.month_set.all()
         for month in months:
             for day in range(calendar.monthrange(year=calendar_.year, month=month.month)[1]):
@@ -98,7 +98,7 @@ class Appointments:
     """
 
     @staticmethod
-    def createAppointment(response):
+    def createAppointment(response) -> render:
         """
         Method for creating a new appointment.
         :param response: Response passed from the form.
