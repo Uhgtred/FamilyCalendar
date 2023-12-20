@@ -4,8 +4,9 @@
 
 {% block content %}
 {% load static %}
-
+<link rel="stylesheet" type="text/css" href="{% static 'keyboard/css/keyboard.min.css' %}">
 <link rel='stylesheet' href={% static 'formStyler.css' %}>
+<script src="{% static 'keyboard/js/jquery.keyboard.min.js' %}"></script>
 <h1>Create appointment</h1>
 <form method="post" action="/CreateAppointment/">
     {% csrf_token %}
