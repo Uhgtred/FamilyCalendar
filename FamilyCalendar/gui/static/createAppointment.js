@@ -7,8 +7,22 @@ function changeValueOfEndDate(value) {
     endDateInput.setAttribute('value', value);
 }
 
+$(function(){
+    $('#id_name').keyboard({
+
+    usePreview: false,
+
+    visible: function(e, keyboard, el) {
+      keyboard.$el.addClass('red');
+    },
+    beforeClose: function(e, keyboard, el, accepted) {
+      keyboard.$el.removeClass('red');
+    }
+    })
+    // console.log('test');
+    // dateInput.keyboard;
+});
+
 // receiving input from date-input-field
 dateInput.addEventListener('input', function () {changeValueOfEndDate(dateInput.value)});
-$(function (){
-    inputs[0].keyboard();
-});
+// dateInput.addEventListener('click', test)
