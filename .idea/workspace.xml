@@ -6,18 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f24bacd9-0047-45e8-bcb2-2bf098093e75" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/appointmentStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/css/appointmentStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/baseStyle.css" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/css/baseStyle.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/calendar.css" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/css/calendar.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/calendar.js" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/js/calendar.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/createAppointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/js/createAppointment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/formStyler.css" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/css/formStyler.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/mybase.js" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/js/mybase.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/appointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/appointment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/baseTemplate.html" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/baseTemplate.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/calendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/calendar.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/createAppointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/createAppointment.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/createCalendar.html" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/createCalendar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/js/createAppointment.js" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/js/createAppointment.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
