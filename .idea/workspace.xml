@@ -1,17 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="AutoImportSettings">
-    <option name="autoReloadType" value="SELECTIVE" />
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="f24bacd9-0047-45e8-bcb2-2bf098093e75" name="Changes" comment="">
+    <list default="true" id="32f6d813-983d-4d53-8e22-da5ff3de562b" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/keyboard/css/keyboard-basic.css" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/keyboard/css/keyboard-basic.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/keyboard/css/keyboard-dark.css" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/keyboard/css/keyboard-dark.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/keyboard/css/keyboard-previewkeyset.css" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/keyboard/css/keyboard-previewkeyset.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/keyboard/css/keyboard.css" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/keyboard/css/keyboard.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/createAppointment.html" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/templates/gui/createAppointment.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -24,42 +18,24 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
-}</component>
-  <component name="ProjectId" id="2ZRbAYRtMq3dAWzaHCbljGJQIr0" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "customColor": "",
+  "associatedIndex": 7
+}]]></component>
+  <component name="ProjectId" id="2aEebZW7aVOXGCanf9a0fqVoAC4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;18-virtual-keyboard-for-forms&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/markus/Dokumente/GitHub/FamilyCalendarProject/FamilyCalendar/gui/static&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Merging 18-virtual-keyboard-for-forms",
+    "nodejs_package_manager_path": "npm",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/FamilyCalendar/gui/static" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\u3130\Documents\GitHub\FamilyCalendar\FamilyCalendar\gui\static\js" />
-      <recent name="C:\Users\u3130\Documents\GitHub\FamilyCalendar\FamilyCalendar\gui\static\css" />
-      <recent name="C:\Users\u3130\Documents\GitHub\FamilyCalendar" />
-    </key>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -70,19 +46,12 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f24bacd9-0047-45e8-bcb2-2bf098093e75" name="Changes" comment="" />
-      <created>1702387702670</created>
+      <changelist id="32f6d813-983d-4d53-8e22-da5ff3de562b" name="Changes" comment="" />
+      <created>1703888241985</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1702387702670</updated>
-      <workItem from="1702387704670" duration="158000" />
-      <workItem from="1702387917659" duration="49000" />
-      <workItem from="1702389299271" duration="321000" />
-      <workItem from="1702935011615" duration="20000" />
-      <workItem from="1703102638754" duration="68000" />
-      <workItem from="1703102718300" duration="2271000" />
-      <workItem from="1703447425001" duration="599000" />
-      <workItem from="1703885787912" duration="1118000" />
+      <updated>1703888241985</updated>
+      <workItem from="1703888245874" duration="53000" />
     </task>
     <servers />
   </component>
