@@ -4,7 +4,7 @@
 
 {% block content %}
 {% load static %}
-<link rel='stylesheet' href={% static 'formStyler.css' %}>
+<link rel='stylesheet' href={% static 'css/formStyler.css' %}>
 <h1>Create Calendar</h1>
 <form method="post" action="/CreateCalendar/">
     {% csrf_token %}

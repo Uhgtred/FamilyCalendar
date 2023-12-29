@@ -22,6 +22,9 @@
   &quot;associatedIndex&quot;: 4
 }</component>
   <component name="ProjectId" id="2ZRbAYRtMq3dAWzaHCbljGJQIr0" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -40,9 +43,14 @@
     "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/FamilyCalendar/gui/static" />
+    </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\u3130\Documents\GitHub\FamilyCalendar\FamilyCalendar\gui\static\js" />
+      <recent name="C:\Users\u3130\Documents\GitHub\FamilyCalendar\FamilyCalendar\gui\static\css" />
       <recent name="C:\Users\u3130\Documents\GitHub\FamilyCalendar" />
     </key>
   </component>
