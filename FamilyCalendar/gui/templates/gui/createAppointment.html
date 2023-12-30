@@ -6,7 +6,6 @@
 {% load static %}
 <link rel="stylesheet" type="text/css" href="{% static 'keyboard/css/keyboard.css' %}">
 <link rel='stylesheet' href="{% static 'css/formStyler.css' %}">
-<script src="{% static 'keyboard/js/jquery.keyboard.js' %}"></script>
 <h1>Create appointment</h1>
 <form method="post" action="/CreateAppointment/">
     {% csrf_token %}
@@ -14,6 +13,7 @@
     <button type="submit" , name="save">
         Save
     </button>
+    <script src="{% static 'keyboard/js/jquery.keyboard.js' %}"></script>
     <script src="{% static 'js/createAppointment.js' %}" async></script>
 </form>
 {% endblock %}

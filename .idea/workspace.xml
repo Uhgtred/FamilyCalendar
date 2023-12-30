@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="f24bacd9-0047-45e8-bcb2-2bf098093e75" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="32f6d813-983d-4d53-8e22-da5ff3de562b" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/FamilyCalendar/gui/static/css/formStyler.css" beforeDir="false" afterPath="$PROJECT_DIR$/FamilyCalendar/gui/static/css/formStyler.css" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,12 +20,10 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 4
+  &quot;customColor&quot;: &quot;&quot;,
+  &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="2ZRbAYRtMq3dAWzaHCbljGJQIr0" />
-  <component name="ProjectLevelVcsManager">
-    <ConfirmationsSetting value="2" id="Add" />
-  </component>
+  <component name="ProjectId" id="2aEebZW7aVOXGCanf9a0fqVoAC4" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -33,27 +32,15 @@
   "keyToString": {
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "Develop",
-    "last_opened_file_path": "C:/Users/u3130/Documents/GitHub/FamilyCalendar",
+    "git-widget-placeholder": "18-virtual-keyboard-for-forms",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
     "vue.rearranger.settings.migration": "true"
   }
-}</component>
-  <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/FamilyCalendar/gui/static" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\u3130\Documents\GitHub\FamilyCalendar\FamilyCalendar\gui\static\js" />
-      <recent name="C:\Users\u3130\Documents\GitHub\FamilyCalendar\FamilyCalendar\gui\static\css" />
-      <recent name="C:\Users\u3130\Documents\GitHub\FamilyCalendar" />
-    </key>
-  </component>
+}]]></component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -64,15 +51,13 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="f24bacd9-0047-45e8-bcb2-2bf098093e75" name="Changes" comment="" />
-      <created>1702387702670</created>
+      <changelist id="32f6d813-983d-4d53-8e22-da5ff3de562b" name="Changes" comment="" />
+      <created>1703888241985</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1702387702670</updated>
-      <workItem from="1702387704670" duration="158000" />
-      <workItem from="1702387917659" duration="49000" />
-      <workItem from="1702389299271" duration="321000" />
-      <workItem from="1703153805111" duration="146000" />
+      <updated>1703888241985</updated>
+      <workItem from="1703888245874" duration="116000" />
+      <workItem from="1703965003426" duration="312000" />
     </task>
     <servers />
   </component>
