@@ -1,2 +1,2 @@
 # FamilyCalendar
-Calendar for managing familie appointments
+Calendar for managing family appointments
