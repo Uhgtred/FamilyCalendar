@@ -1,4 +1,4 @@
-from api.models import Calendar, Appointment, Month, Day
+from .models import Calendar, Appointment, Month, Day
 from django.contrib import admin
 
 # Register your models here.
